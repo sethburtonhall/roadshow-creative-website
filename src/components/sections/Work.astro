@@ -1,0 +1,42 @@
+---
+import ProjectCard from '../ui/ProjectCard.astro';
+import { projects } from '../../data/projects';
+
+interface Props {
+  id?: string;
+}
+const { id = 'work' } = Astro.props;
+---
+
+<section
+  id={id}
+  class="py-section-lg px-8 max-w-[1200px] mx-auto"
+>
+  <!-- Section header -->
+  <div data-animate class="flex items-end justify-between mb-14 gap-8 flex-wrap">
+    <div>
+      <div class="section-label mb-4">Selected Work</div>
+      <h2 class="text-headline text-text m-0">PROJECTS</h2>
+    </div>
+    <p class="text-[0.9375rem] text-text-muted max-w-[320px] m-0 leading-[1.65] text-right sm:text-right max-sm:text-left work-subtext">
+      Products built end-to-end — conception through deployment.
+    </p>
+  </div>
+
+  <!-- Projects grid -->
+  <div
+    data-animate-stagger
+    class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(min(100%,520px),1fr))]"
+  >
+    {projects.map((project) => (
+      <ProjectCard {...project} />
+    ))}
+
+    <!-- Placeholder card: coming soon -->
+    <article class="bg-surface border border-dashed border-border rounded-card p-8 flex flex-col items-start justify-center gap-3 min-h-[220px]">
+      <span class="font-mono text-[0.625rem] tracking-[0.18em] uppercase text-text-dim">Next project</span>
+      <p class="font-display text-[clamp(1.5rem,3vw,2rem)] text-in-progress m-0 tracking-[0.03em]">IN PROGRESS</p>
+      <p class="text-sm text-text-dim m-0 leading-[1.6]">Something new is being built. Check back soon.</p>
+    </article>
+  </div>
+</section>

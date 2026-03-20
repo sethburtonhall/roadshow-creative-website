@@ -1,0 +1,66 @@
+---
+interface Props {
+  id?: string;
+}
+const { id = 'contact' } = Astro.props;
+
+const EMAIL = 'hello@roadshowcreative.dev';
+const CAL_URL = 'https://cal.com/roadshow-creative';
+---
+
+<section
+  id={id}
+  class="py-section-lg px-8 bg-surface border-t border-border relative overflow-hidden"
+>
+  <!-- Ambient glow -->
+  <div
+    aria-hidden="true"
+    class="absolute bottom-[-40%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(249,115,22,0.1)_0%,transparent_65%)] pointer-events-none rounded-full"
+  ></div>
+
+  <div class="max-w-[900px] mx-auto text-center relative z-1">
+    <!-- Label -->
+    <div data-animate class="flex justify-center mb-6">
+      <div class="section-label">Get in Touch</div>
+    </div>
+
+    <!-- Headline -->
+    <h2 data-animate class="text-headline text-text mb-6">
+      LET'S BUILD<br />
+      <span style="-webkit-text-stroke: 1px rgba(242, 240, 235, 0.3);" class="text-transparent">SOMETHING</span>
+    </h2>
+
+    <!-- Sub text -->
+    <p data-animate class="text-lead text-text-muted max-w-[500px] mx-auto mb-12 leading-[1.65]">
+      Open to new projects. Whether you need a technical co-founder, a full-stack build, or a development partner — reach out.
+    </p>
+
+    <!-- CTA buttons -->
+    <div data-animate class="flex justify-center gap-4 flex-wrap mb-12">
+      <a href={`mailto:${EMAIL}`} class="btn-primary text-[0.9375rem] py-4 px-8">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+        Send an Email
+      </a>
+      <a
+        href={CAL_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-ghost text-[0.9375rem] py-4 px-8"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="18" rx="2"/>
+          <path d="M16 2v4M8 2v4M3 10h18"/>
+        </svg>
+        Book a Call
+      </a>
+    </div>
+
+    <!-- Response note -->
+    <p data-animate class="font-mono text-label tracking-[0.12em] uppercase text-text-dim">
+      Typically respond within 24 hours
+    </p>
+  </div>
+</section>

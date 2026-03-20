@@ -1,0 +1,74 @@
+---
+interface Props {
+  id?: string;
+}
+const { id = 'about' } = Astro.props;
+
+const expertise = [
+  'Next.js', 'TypeScript', 'React', 'Astro',
+  'Node.js', 'PostgreSQL', 'Supabase', 'Tailwind CSS',
+  'Vercel', 'Product Architecture', 'SaaS',
+];
+---
+
+<section
+  id={id}
+  class="py-section-lg px-8 bg-surface border-t border-border border-b relative overflow-hidden"
+>
+  <!-- Decorative large text background -->
+  <div aria-hidden="true" class="absolute -right-8 -bottom-12 font-display text-[clamp(10rem,24vw,20rem)] leading-none text-transparent pointer-events-none select-none tracking-[-0.02em] z-0" style="-webkit-text-stroke: 1px var(--color-border-subtle);">02</div>
+
+  <div class="about-grid max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-2 max-md:grid-cols-1 gap-20 max-md:gap-10 items-start relative z-1">
+
+    <!-- Left: headline -->
+    <div data-animate>
+      <div class="section-label mb-6">About</div>
+      <h2 class="text-headline text-text mb-8">
+        ABOUT<br />
+        <span style="-webkit-text-stroke: 1px rgba(242, 240, 235, 0.3);" class="text-transparent">SETH</span>
+      </h2>
+
+      <!-- Expertise tags -->
+      <div class="mt-10">
+        <div class="section-label text-text-dim mb-4">
+          Stack
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {expertise.map((item) => (
+            <span class="font-mono text-label tracking-[0.08em] uppercase text-text-muted border border-border rounded-sm px-[0.65rem] py-[0.3rem] bg-surface-2">{item}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: bio text -->
+    <div data-animate class="pt-2">
+      <p class="text-lead leading-[1.7] text-text-muted mb-6">
+        I'm Seth — a full-stack developer, technical lead, and lifelong creative based in Oceanside, CA. I build modern web products from first principles.
+      </p>
+      <p class="text-[0.9375rem] leading-[1.75] text-text-dim mb-6">
+        After three years working as a digital nomad — shipping code from wherever the wifi held — I established a permanent base in Southern California. The studio name reflects that journey, with Oceanside now serving as headquarters.
+      </p>
+      <p class="text-[0.9375rem] leading-[1.75] text-text-dim mb-10">
+        I work at the intersection of design, engineering, and product strategy — guiding teams, shipping features, and building companies. Roadshow Creative is the home for that craft: client work done right, and products built to last. <strong class="text-text-muted font-semibold">Village</strong> is the first.
+      </p>
+
+      <!-- Callout stats row -->
+      <div data-animate-stagger class="grid grid-cols-3 gap-6 border-t border-border pt-8">
+        <div>
+          <div class="font-display text-[2.5rem] leading-none text-accent mb-1.5">15+</div>
+          <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">Years Building</div>
+        </div>
+        <div>
+          <div class="font-display text-[2.5rem] leading-none text-accent mb-1.5">20+</div>
+          <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">Projects Shipped</div>
+        </div>
+        <div>
+          <div class="font-display text-[2.5rem] leading-none text-accent mb-1.5">1</div>
+          <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">SaaS Live</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

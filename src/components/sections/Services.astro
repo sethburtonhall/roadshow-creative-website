@@ -1,0 +1,64 @@
+---
+import { services } from '../../data/services';
+
+interface Props {
+  id?: string;
+}
+const { id = 'services' } = Astro.props;
+---
+
+<section
+  id={id}
+  class="py-section-lg px-8 max-w-[1200px] mx-auto relative"
+>
+  <!-- Background numeral -->
+  <div aria-hidden="true" class="absolute -right-8 top-8 font-display text-[clamp(10rem,24vw,20rem)] leading-none text-transparent pointer-events-none select-none z-0" style="-webkit-text-stroke: 1px var(--color-border-subtle);">03</div>
+
+  <!-- Section header -->
+  <div data-animate class="mb-16 relative z-1">
+    <div class="section-label mb-4">What I Do</div>
+    <h2 class="text-headline text-text m-0">SERVICES</h2>
+  </div>
+
+  <!-- Services list -->
+  <div class="relative z-1">
+    {services.map((service, index) => (
+      <div
+        class={`service-item grid max-sm:grid-cols-[3.5rem_1fr] grid-cols-[5rem_1fr_auto] gap-8 items-start py-10 border-t border-border${index === services.length - 1 ? ' border-b' : ''}`}
+        data-animate
+      >
+        <!-- Number -->
+        <div class="service-number font-display text-[3.5rem] leading-none text-border tracking-[0.02em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] shrink-0">{service.number}</div>
+
+        <!-- Content -->
+        <div>
+          <h3 class="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-none tracking-[0.02em] text-text mb-3.5">{service.title.toUpperCase()}</h3>
+          <p class="text-[0.9375rem] leading-[1.7] text-text-muted mb-5 max-w-[540px]">{service.description}</p>
+          <div class="flex flex-wrap gap-1.5">
+            {service.tags.map((tag) => (
+              <span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase text-text-dim border border-border rounded-sm px-2 py-[0.2rem] bg-surface">{tag}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Arrow -->
+        <div class="service-arrow max-sm:hidden mt-2 text-border transition-[color,transform] duration-320 shrink-0 ease-[cubic-bezier(0.4,0,0.2,1),cubic-bezier(0.19,1,0.22,1)]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .service-item:hover .service-number {
+    color: var(--color-accent);
+  }
+
+  .service-item:hover .service-arrow {
+    color: var(--color-accent);
+    transform: translate(2px, -2px);
+  }
+</style>

@@ -1,0 +1,109 @@
+---
+import type { Project } from '../../data/projects';
+
+interface Props extends Project {}
+
+const { title, tagline, description, tags, href, featured, year, status } = Astro.props;
+
+const statusClasses: Record<string, string> = {
+  live: 'text-live',
+  'in-progress': 'text-in-progress',
+  concept: 'text-concept',
+};
+
+const statusLabels: Record<string, string> = {
+  live: 'Live',
+  'in-progress': 'In Progress',
+  concept: 'Concept',
+};
+
+// Keep statusColor as a CSS variable string for the dynamic box-shadow on the dot
+const statusColors: Record<string, string> = {
+  live: 'var(--color-live)',
+  'in-progress': 'var(--color-in-progress)',
+  concept: 'var(--color-concept)',
+};
+
+const statusColor = statusColors[status] ?? 'var(--color-concept)';
+const statusClass = statusClasses[status] ?? 'text-concept';
+const statusLabel = statusLabels[status] ?? status;
+---
+
+<article
+  class={`project-card${featured ? ' project-card--featured' : ''} relative bg-surface border border-border rounded-card ${featured ? 'p-10' : 'p-8'} flex flex-col gap-5 transition-[border-color,box-shadow,transform] duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden h-full`}
+>
+  <!-- Background glow on featured -->
+  {featured && (
+    <div
+      aria-hidden="true"
+      class="absolute -top-[40%] -right-[20%] w-[60%] pb-[60%] bg-[radial-gradient(ellipse_at_center,rgba(249,115,22,0.06)_0%,transparent_70%)] pointer-events-none rounded-full"
+    ></div>
+  )}
+
+  <!-- Top row: tags + year + status -->
+  <div class="flex items-center justify-between gap-4 flex-wrap relative z-1">
+    <!-- Tags -->
+    <div class="flex flex-wrap gap-1.5">
+      {tags.map((tag) => (
+        <span class="font-mono text-label tracking-widest uppercase text-text-dim bg-surface-2 border border-border rounded-sm px-2 py-1">{tag}</span>
+      ))}
+    </div>
+
+    <!-- Year + Status -->
+    <div class="flex items-center gap-3 shrink-0">
+      <span class="font-mono text-label text-text-dim tracking-[0.08em]">{year}</span>
+      <div class="flex items-center gap-1.5">
+        <span
+          class="w-[5px] h-[5px] rounded-full shrink-0"
+          style={`background: ${statusColor}; box-shadow: 0 0 5px ${statusColor};`}
+        ></span>
+        <span class={`font-mono text-label tracking-widest uppercase ${statusClass}`}>{statusLabel}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Title + tagline -->
+  <div class="relative z-1">
+    {tagline && (
+      <div class="section-label mb-3.5 text-label">
+        {tagline}
+      </div>
+    )}
+    <h3 class={`font-display ${featured ? 'text-[clamp(2.25rem,5vw,3.75rem)]' : 'text-[clamp(1.75rem,3.5vw,2.5rem)]'} leading-[0.95] tracking-[0.01em] m-0 text-text`}>{title.toUpperCase()}</h3>
+  </div>
+
+  <!-- Description -->
+  <p class="text-[0.9375rem] leading-[1.65] text-text-muted m-0 relative z-1 flex-1">{description}</p>
+
+  <!-- Footer: link -->
+  {href && (
+    <div class="flex items-center justify-between border-t border-border-subtle pt-5 mt-auto relative z-1">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link inline-flex items-center gap-2 text-sm font-semibold text-accent no-underline tracking-[0.01em] transition-[gap] duration-320 ease-expo"
+      >
+        Visit Site
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </a>
+    </div>
+  )}
+</article>
+
+<style>
+  .project-card:hover {
+    border-color: rgba(249, 115, 22, 0.3);
+    box-shadow:
+      0 0 0 1px rgba(249, 115, 22, 0.05),
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 1px 0 rgba(249, 115, 22, 0.1) inset;
+    transform: translateY(-2px);
+  }
+
+  .project-card:hover .project-link {
+    gap: 0.75rem;
+  }
+</style>

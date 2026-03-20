@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "roadshow-creative",
+      "runtimeExecutable": "/bin/bash",
+      "runtimeArgs": ["/Users/seth/apps/roadshow-creative/dev.sh"],
+      "port": 4321
+    }
+  ]
+}
