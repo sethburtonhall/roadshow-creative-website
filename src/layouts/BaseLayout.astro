@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title?: string;
@@ -42,6 +43,36 @@ const {
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Roadshow Creative",
+      "url": "https://roadshowcreative.dev",
+      "logo": "https://roadshowcreative.dev/favicon.svg",
+      "image": "https://roadshowcreative.dev/og-image.jpg",
+      "description": "Freelance full-stack development studio. Building ambitious web products end-to-end — from SaaS to marketing sites.",
+      "founder": {
+        "@type": "Person",
+        "name": "Seth Hall",
+        "jobTitle": "Founder & Full-Stack Developer",
+        "url": "https://roadshowcreative.dev",
+        "sameAs": [
+          "https://github.com/sethburtonhall",
+          "https://www.linkedin.com/in/sethburtonhall/"
+        ]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Oceanside",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "areaServed": "Worldwide",
+      "serviceType": ["Full-Stack Web Development", "SaaS Development", "Technical Leadership", "Frontend Engineering"]
+    })} />
+
+
     <!-- Google Fonts: Plus Jakarta Sans + Bebas Neue + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,6 +83,7 @@ const {
   </head>
   <body>
     <slot />
+    <Analytics />
 
     <!-- Scroll animation observer -->
     <script>

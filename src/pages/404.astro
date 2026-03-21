@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="404 — Page Not Found · Roadshow Creative"
+  description="This page doesn't exist, but the studio does."
+>
+  <div class="relative min-h-svh flex flex-col items-center justify-center px-8 overflow-hidden bg-base">
+
+    <!-- Spotlight glow -->
+    <div class="spotlight absolute pointer-events-none" style="width: min(70vw,700px); height: min(70vw,700px); top: -25%; left: 50%; transform: translateX(-50%);" aria-hidden="true"></div>
+
+    <!-- Grid -->
+    <div class="grid-lines absolute inset-0 opacity-30 pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Background numeral -->
+    <div aria-hidden="true" class="absolute inset-0 flex items-center justify-center font-display text-[clamp(16rem,40vw,28rem)] leading-none text-transparent select-none pointer-events-none tracking-[-0.02em]" style="-webkit-text-stroke: 1px var(--color-border);">404</div>
+
+    <!-- Content -->
+    <div class="relative z-10 text-center">
+      <div class="section-label justify-center mb-8">Page Not Found</div>
+      <h1 class="font-display text-[clamp(3rem,8vw,6rem)] leading-none text-text mb-6 tracking-[0.01em]">
+        WRONG<br />
+        <span class="text-transparent" style="-webkit-text-stroke: 1px rgba(242,240,235,0.25);">TURN</span>
+      </h1>
+      <p class="text-lead text-text-muted max-w-[400px] mx-auto mb-10 leading-[1.65]">
+        This page doesn't exist. But the studio does — let's get you back on the road.
+      </p>
+      <a href="/" class="btn-primary">
+        Back to Home
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</BaseLayout>
