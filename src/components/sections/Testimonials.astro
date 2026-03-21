@@ -1,0 +1,59 @@
+---
+import { testimonials } from '@/data/testimonials';
+
+interface Props {
+  id?: string;
+}
+const { id = 'testimonials' } = Astro.props;
+---
+
+<section
+  id={id}
+  class="py-section-lg px-8 bg-surface border-t border-border border-b relative overflow-hidden"
+>
+  <!-- Decorative background numeral -->
+  <div
+    aria-hidden="true"
+    class="absolute -right-8 -bottom-12 font-display text-[clamp(10rem,24vw,20rem)] leading-none text-transparent pointer-events-none select-none tracking-[-0.02em] z-0"
+    style="-webkit-text-stroke: 1px var(--color-border-subtle);"
+  >04</div>
+
+  <!-- Section header -->
+  <div class="max-w-[1200px] mx-auto relative z-1">
+    <div data-animate class="mb-14">
+      <div class="section-label mb-4">Kind Words</div>
+      <h2 class="text-headline text-text m-0">TESTIMONIALS</h2>
+    </div>
+
+    <!-- Bento grid -->
+    <div
+      data-animate-stagger
+      class="grid grid-cols-1 md:grid-cols-2 gap-6"
+    >
+      {testimonials.map((t, i) => (
+        <figure class={`bg-surface-2 border border-border rounded-card p-8 flex flex-col gap-5 m-0${i === 0 ? ' md:col-span-2' : ''}`}>
+          <!-- Pull quote -->
+          <div class={`flex gap-4 items-start${i === 0 ? ' md:gap-6' : ''}`}>
+            <span
+              class={`font-display leading-none text-accent shrink-0 mt-[-0.25rem]${i === 0 ? ' text-[4rem]' : ' text-[3rem]'}`}
+              aria-hidden="true"
+            >"</span>
+            <blockquote class={`leading-[1.75] text-text-muted m-0 italic${i === 0 ? ' text-[1.0625rem]' : ' text-[0.9375rem]'}`}>
+              {t.quote}
+            </blockquote>
+          </div>
+
+          <!-- Attribution -->
+          <figcaption class="border-t border-border pt-5 flex flex-col gap-1 mt-auto">
+            <span class="font-display text-[1.125rem] tracking-[0.02em] text-text">
+              {t.name}
+            </span>
+            <span class="font-mono text-[0.625rem] tracking-widest uppercase text-text-dim">
+              {t.title}
+            </span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

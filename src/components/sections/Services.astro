@@ -1,5 +1,6 @@
 ---
-import { services } from '../../data/services';
+import { services } from '@/data/services';
+import { ArrowUpRight } from '@lucide/astro';
 
 interface Props {
   id?: string;
@@ -43,9 +44,7 @@ const { id = 'services' } = Astro.props;
 
         <!-- Arrow -->
         <div class="service-arrow max-sm:hidden mt-2 text-border transition-[color,transform] duration-320 shrink-0 ease-[cubic-bezier(0.4,0,0.2,1),cubic-bezier(0.19,1,0.22,1)]">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M7 17L17 7M17 7H7M17 7v10"/>
-          </svg>
+          <ArrowUpRight size={20} />
         </div>
       </div>
     ))}

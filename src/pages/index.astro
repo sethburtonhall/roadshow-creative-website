@@ -1,12 +1,15 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Nav from '../components/Nav.astro';
-import Hero from '../components/sections/Hero.astro';
-import Work from '../components/sections/Work.astro';
-import About from '../components/sections/About.astro';
-import Services from '../components/sections/Services.astro';
-import Contact from '../components/sections/Contact.astro';
-import FooterBar from '../components/ui/FooterBar.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Nav from '@/components/Nav.astro';
+import Hero from '@/components/sections/Hero.astro';
+import Work from '@/components/sections/Work.astro';
+import ShortStacks from '@/components/sections/ShortStacks.astro';
+import { shortStacks } from '@/data/shortStacks';
+import About from '@/components/sections/About.astro';
+import Services from '@/components/sections/Services.astro';
+import Testimonials from '@/components/sections/Testimonials.astro';
+import Contact from '@/components/sections/Contact.astro';
+import FooterBar from '@/components/ui/FooterBar.astro';
 ---
 
 <BaseLayout>
@@ -14,8 +17,10 @@ import FooterBar from '../components/ui/FooterBar.astro';
   <main>
     <Hero />
     <Work id="work" />
+    {shortStacks.length > 0 && <ShortStacks />}
     <About id="about" />
     <Services id="services" />
+    <Testimonials />
     <Contact id="contact" />
   </main>
   <FooterBar />

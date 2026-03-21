@@ -1,0 +1,69 @@
+---
+import { shortStacks } from '@/data/shortStacks';
+import { ArrowUpRight } from '@lucide/astro';
+
+interface Props {
+  id?: string;
+}
+const { id = 'short-stacks' } = Astro.props;
+---
+
+<section
+  id={id}
+  class="py-section-lg px-8 max-w-[1200px] mx-auto"
+>
+  <!-- Section header -->
+  <div data-animate class="flex items-end justify-between mb-14 gap-8 flex-wrap">
+    <div>
+      <div class="section-label mb-4">Experiments</div>
+      <h2 class="text-headline text-text m-0">SHORT<br /><span class="text-transparent" style="-webkit-text-stroke: 1px rgba(242,240,235,0.25);">STACKS</span></h2>
+    </div>
+    <p class="text-[0.9375rem] text-text-muted max-w-[320px] m-0 leading-[1.65] text-right max-sm:text-left">
+      Small projects and experiments. To keep the creative juices flowing.
+    </p>
+  </div>
+
+  <!-- Stack list -->
+  <div class="relative" data-animate>
+    {shortStacks.map((stack, index) => (
+      <div class={`short-stack-item group flex items-start gap-8 py-8 border-t border-border${index === shortStacks.length - 1 ? ' border-b' : ''} max-sm:flex-col max-sm:gap-4`}>
+
+        <!-- Icon -->
+        <span class="shrink-0 mt-1 w-12 flex items-center justify-center">
+          <stack.icon size={30} />
+        </span>
+
+        <!-- Name + description -->
+        <div class="flex-1 min-w-0">
+            {stack.href && (
+              <a
+                href={stack.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-accent-2 duration-200 shrink-0 flex items-center gap-3 mb-2"
+                aria-label={`Visit ${stack.name}`}
+              >
+                <h3 class="font-display text-[1.5rem] leading-none tracking-[0.02em] text-text m-0 transition-colors duration-320 group-hover:text-accent">
+                  {stack.name.toUpperCase()}
+                </h3>
+                <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  <ArrowUpRight size={16} />
+                </div>
+              </a>
+            )}
+          <p class="text-[0.9375rem] text-text-muted leading-[1.6] m-0">{stack.description}</p>
+        </div>
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-1.5 shrink-0 max-w-[220px] max-sm:max-w-full justify-end max-sm:justify-start">
+          {stack.tags.map((tag) => (
+            <span class="font-mono text-[0.6rem] tracking-wider uppercase text-text-dim border border-border rounded-sm px-2 py-[0.2rem] bg-surface">
+              {tag}
+            </span>
+          ))}
+        </div>
+
+      </div>
+    ))}
+  </div>
+</section>
