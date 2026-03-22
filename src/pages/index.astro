@@ -16,11 +16,11 @@ import FooterBar from '@/components/ui/FooterBar.astro';
   <Nav />
   <main>
     <Hero />
-    <Work id="work" />
-    {shortStacks.length > 0 && <ShortStacks />}
-    <About id="about" />
     <Services id="services" />
+    <Work id="work" />
     <Testimonials />
+    <About id="about" />
+    {shortStacks.length > 0 && <ShortStacks />}
     <Contact id="contact" />
   </main>
   <FooterBar />

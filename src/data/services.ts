@@ -36,7 +36,7 @@ export const services: Service[] = [
     number: "04",
     title: "Technical Leadership",
     description:
-      "Fractional tech lead or CTO for creative agencies and early-stage teams. Architecture decisions, code standards, hiring guidance, and cross-functional communication.",
+      "Embedded technical lead for agencies and early-stage teams. You bring the client relationship and the creative direction — I own the architecture, the code standards, and the technical delivery.",
     tags: ["Strategy", "Architecture", "Code Review", "Team Guidance"],
   },
 ];
