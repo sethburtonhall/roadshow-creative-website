@@ -5,6 +5,7 @@ export interface Project {
   description: string;
   tags: string[];
   href?: string;
+  caseStudyHref?: string;
   featured?: boolean;
   year: string;
   status: "live" | "in-progress" | "concept";
@@ -29,6 +30,7 @@ export const projects: Project[] = [
       "shadcn/ui",
     ],
     href: "https://www.usevillage.app",
+    caseStudyHref: "/work/village",
     featured: true,
     year: "2026",
     status: "live",

@@ -4,7 +4,7 @@ import { ArrowUpRight } from '@lucide/astro';
 
 interface Props extends Project {}
 
-const { title, tagline, description, tags, href, featured, year, status } = Astro.props;
+const { title, tagline, description, tags, href, caseStudyHref, featured, year, status } = Astro.props;
 
 const statusClasses: Record<string, string> = {
   live: 'text-live',
@@ -76,18 +76,30 @@ const statusLabel = statusLabels[status] ?? status;
   <!-- Description -->
   <p class="text-[0.9375rem] leading-[1.65] text-text-muted m-0 relative z-1 flex-1">{description}</p>
 
-  <!-- Footer: link -->
-  {href && (
-    <div class="flex items-center justify-between border-t border-border-subtle pt-5 mt-auto relative z-1">
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="project-link inline-flex items-center gap-2 text-sm font-semibold text-accent no-underline tracking-[0.01em] transition-[gap] duration-320 ease-expo"
-      >
-        Visit Site
-        <ArrowUpRight size={16} />
-      </a>
+  <!-- Footer: links -->
+  {(href || caseStudyHref) && (
+    <div class="flex items-center gap-6 border-t border-border-subtle pt-5 mt-auto relative z-1">
+      {href && (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-link inline-flex items-center gap-2 text-sm font-semibold text-accent no-underline tracking-[0.01em] transition-[gap] duration-320 ease-expo"
+        >
+          Visit Site
+          <ArrowUpRight size={16} />
+        </a>
+      )}
+      {/* TODO: Unhide case study link when ready to publish (/work/village) */}
+      {false && caseStudyHref && (
+        <a
+          href={caseStudyHref}
+          class="project-link inline-flex items-center gap-2 text-sm font-semibold text-text-muted no-underline tracking-[0.01em] transition-[gap,color] duration-320 ease-expo hover:text-text"
+        >
+          Case Study
+          <ArrowUpRight size={16} />
+        </a>
+      )}
     </div>
   )}
 </article>

@@ -1,0 +1,242 @@
+---
+// TODO ─────────────────────────────────────────────────────────────────────
+// This case study is stubbed out and ready to publish. Revisit when:
+//   1. Village has meaningful early metrics (signups, active users, retention)
+//   2. You're beginning active outreach to agencies (Phase 3 of marketing plan)
+//
+// Sections to complete before publishing:
+//   - [METRIC] placeholders throughout — fill in with real numbers
+//   - "Key Challenges" section — write 1–2 real technical or product challenges
+//     you faced and how you solved them. This is the most compelling part for
+//     a technical buyer. Be specific.
+//   - Screenshots — add real product screenshots to /public/work/village/
+//   - Review all copy for accuracy once Village has more real-world context
+// ──────────────────────────────────────────────────────────────────────────
+
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Nav from '@/components/Nav.astro';
+import FooterBar from '@/components/ui/FooterBar.astro';
+import { ArrowLeft, ArrowUpRight } from '@lucide/astro';
+---
+
+<BaseLayout
+  title="Village — Case Study · Roadshow Creative"
+  description="How Seth built Village — a modern group sign-up SaaS — from zero to production. Stack decisions, product thinking, and lessons learned."
+>
+  <Nav />
+
+  <main class="pt-32 pb-24 px-8">
+    <div class="max-w-[800px] mx-auto">
+
+      <!-- Back link -->
+      <a
+        href="/#work"
+        class="inline-flex items-center gap-2 font-mono text-label tracking-[0.1em] uppercase text-text-dim hover:text-text-muted transition-colors duration-200 no-underline mb-16 group"
+      >
+        <ArrowLeft size={14} class="transition-transform duration-200 group-hover:-translate-x-1" />
+        Back to Work
+      </a>
+
+      <!-- Header -->
+      <div class="mb-16" data-animate>
+        <div class="section-label mb-4">Case Study</div>
+        <h1 class="text-headline text-text leading-[0.95] mb-6">
+          VILLAGE
+        </h1>
+        <p class="text-lead text-text-muted leading-[1.65] max-w-[580px]">
+          A modern group sign-up SaaS built from zero to production — as a direct alternative to SignUpGenius.
+        </p>
+
+        <!-- Meta row -->
+        <div class="flex flex-wrap gap-x-10 gap-y-4 mt-10 pt-10 border-t border-border">
+          <div>
+            <div class="font-mono text-[0.625rem] tracking-[0.14em] uppercase text-text-dim mb-1.5">Year</div>
+            <div class="font-mono text-sm text-text-muted">2026</div>
+          </div>
+          <div>
+            <div class="font-mono text-[0.625rem] tracking-[0.14em] uppercase text-text-dim mb-1.5">Role</div>
+            <div class="font-mono text-sm text-text-muted">Founder · Full-Stack Engineer · Product</div>
+          </div>
+          <div>
+            <div class="font-mono text-[0.625rem] tracking-[0.14em] uppercase text-text-dim mb-1.5">Status</div>
+            <div class="flex items-center gap-1.5">
+              <span class="w-[5px] h-[5px] rounded-full bg-live shrink-0" style="box-shadow: 0 0 5px var(--color-live);"></span>
+              <span class="font-mono text-sm text-live">Live</span>
+            </div>
+          </div>
+          <div>
+            <div class="font-mono text-[0.625rem] tracking-[0.14em] uppercase text-text-dim mb-1.5">Live at</div>
+            <a
+              href="https://www.usevillage.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1 font-mono text-sm text-accent no-underline hover:underline"
+            >
+              usevillage.app
+              <ArrowUpRight size={12} />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stack -->
+      <section class="mb-16" data-animate>
+        <h2 class="font-display text-[clamp(1.5rem,3vw,2.25rem)] tracking-[0.02em] text-text mb-6">THE STACK</h2>
+        <div class="flex flex-wrap gap-2">
+          {['Next.js', 'TypeScript', 'React', 'Supabase', 'PostgreSQL', 'Clerk', 'Vercel', 'Loops', 'shadcn/ui', 'Tailwind CSS'].map((tag) => (
+            <span class="font-mono text-label tracking-[0.08em] uppercase text-text-muted border border-border rounded-sm px-[0.65rem] py-[0.3rem] bg-surface-2">{tag}</span>
+          ))}
+        </div>
+      </section>
+
+      <div class="w-full h-px bg-border mb-16"></div>
+
+      <!-- The Problem -->
+      <section class="mb-16" data-animate>
+        <h2 class="font-display text-[clamp(1.5rem,3vw,2.25rem)] tracking-[0.02em] text-text mb-6">THE PROBLEM</h2>
+        <div class="space-y-4 text-[0.9375rem] leading-[1.75] text-text-muted">
+          <p>
+            SignUpGenius has a stranglehold on the group sign-up market — but it's aged badly. The interface is cluttered with ads, the UX is confusing for participants, and the experience of sharing a sign-up link feels embarrassing compared to modern web standards.
+          </p>
+          <p>
+            The people who feel this most are recurring community organizers: church volunteer coordinators, PTA leaders, sports team managers, neighborhood reps. They're not event professionals — they're coordinators who inherited the job. They need something that works in under two minutes and doesn't make participants give up before signing up.
+          </p>
+          <p>
+            Facebook Events handles the casual end of this market, but requires accounts and provides no data ownership. Google Forms is a hacky workaround. Eventbrite is overkill for free community events.
+          </p>
+          <p>
+            Village is built for the gap: a purpose-built, modern sign-up tool that makes participants not need an account, looks clean enough to share proudly, and gives organizers real-time visibility without the friction.
+          </p>
+        </div>
+      </section>
+
+      <div class="w-full h-px bg-border mb-16"></div>
+
+      <!-- Key Decisions -->
+      <section class="mb-16" data-animate>
+        <h2 class="font-display text-[clamp(1.5rem,3vw,2.25rem)] tracking-[0.02em] text-text mb-8">KEY DECISIONS</h2>
+
+        <div class="space-y-10">
+          <div class="grid grid-cols-[1fr] gap-3">
+            <div class="font-mono text-[0.6875rem] tracking-[0.14em] uppercase text-accent">Auth — Clerk</div>
+            <p class="text-[0.9375rem] leading-[1.75] text-text-muted m-0">
+              Clerk handles all organizer authentication — email/password, social login, session management. The key constraint was that <strong class="text-text font-medium">participants don't need accounts</strong>. Clerk gives organizers a robust auth experience while the participant flow stays completely frictionless — just a name, email, and submit.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-[1fr] gap-3">
+            <div class="font-mono text-[0.6875rem] tracking-[0.14em] uppercase text-accent">Database — Supabase + PostgreSQL</div>
+            <p class="text-[0.9375rem] leading-[1.75] text-text-muted m-0">
+              Supabase provides the Postgres database, real-time subscriptions for live sign-up visibility, and row-level security. Real-time was a core product requirement — organizers see sign-ups as they happen without refreshing. Supabase's RLS policies also cleanly enforce that organizers only see their own events and sign-ups.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-[1fr] gap-3">
+            <div class="font-mono text-[0.6875rem] tracking-[0.14em] uppercase text-accent">Email — Loops</div>
+            <p class="text-[0.9375rem] leading-[1.75] text-text-muted m-0">
+              Loops handles transactional and marketing email — sign-up confirmations, event reminders, and organizer notifications. Chosen over alternatives for its clean API, React Email compatibility, and focus on SaaS use cases rather than bulk marketing.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-[1fr] gap-3">
+            <div class="font-mono text-[0.6875rem] tracking-[0.14em] uppercase text-accent">Framework — Next.js App Router</div>
+            <p class="text-[0.9375rem] leading-[1.75] text-text-muted m-0">
+              Next.js App Router with TypeScript throughout. Server components handle data fetching for event pages, keeping participant-facing pages fast and SEO-friendly. Client components handle the interactive sign-up flow and real-time updates. Deployed to Vercel.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="w-full h-px bg-border mb-16"></div>
+
+      <!-- Key Challenges -->
+      <section class="mb-16" data-animate>
+        <h2 class="font-display text-[clamp(1.5rem,3vw,2.25rem)] tracking-[0.02em] text-text mb-4">KEY CHALLENGES</h2>
+        <p class="text-[0.8125rem] font-mono tracking-[0.08em] uppercase text-accent mb-8">
+          TODO — Fill in before publishing
+        </p>
+        <div class="bg-surface border border-dashed border-border rounded-card p-8 space-y-4 text-[0.9375rem] leading-[1.75] text-text-dim">
+          <p>
+            Add 1–2 real challenges you faced building Village and how you solved them. This is the most valuable section for a technical buyer — it shows how you think, not just what you shipped.
+          </p>
+          <p>Examples of what works well here:</p>
+          <ul class="list-disc list-inside space-y-2 text-text-dim">
+            <li>A tricky technical problem and the decision you made to solve it</li>
+            <li>A product assumption that turned out to be wrong and how you adapted</li>
+            <li>A performance or architecture challenge at a specific scale</li>
+            <li>A UX problem that required iterating on the design and why</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="w-full h-px bg-border mb-16"></div>
+
+      <!-- Outcome -->
+      <section class="mb-16" data-animate>
+        <h2 class="font-display text-[clamp(1.5rem,3vw,2.25rem)] tracking-[0.02em] text-text mb-4">OUTCOME</h2>
+        <p class="text-[0.8125rem] font-mono tracking-[0.08em] uppercase text-accent mb-8">
+          TODO — Update with real metrics before publishing
+        </p>
+
+        <div class="grid grid-cols-3 gap-6 mb-10">
+          <div class="bg-surface border border-border rounded-card p-6">
+            <div class="font-display text-[2.5rem] leading-none text-accent mb-2">[METRIC]</div>
+            <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">Registered Users</div>
+          </div>
+          <div class="bg-surface border border-border rounded-card p-6">
+            <div class="font-display text-[2.5rem] leading-none text-accent mb-2">[METRIC]</div>
+            <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">Events Created</div>
+          </div>
+          <div class="bg-surface border border-border rounded-card p-6">
+            <div class="font-display text-[2.5rem] leading-none text-accent mb-2">[METRIC]</div>
+            <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">Sign-ups Collected</div>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-[0.9375rem] leading-[1.75] text-text-muted">
+          <p>
+            Village shipped from zero to production as a solo build — product, design, architecture, and engineering all owned end-to-end. The free tier is live; paid plans (Individual at $7/mo, Organization at $15/mo) unlock advanced features including check-in mode, CSV export, group messaging, and white-label branding.
+          </p>
+          <p>
+            The product is currently in private beta with a public waitlist. Early feedback has validated the core insight: existing users of SignUpGenius and Facebook Events are the fastest to convert, because they already understand the problem — they just needed a better tool.
+          </p>
+        </div>
+      </section>
+
+      <div class="w-full h-px bg-border mb-16"></div>
+
+      <!-- What this demonstrates -->
+      <section class="mb-16" data-animate>
+        <h2 class="font-display text-[clamp(1.5rem,3vw,2.25rem)] tracking-[0.02em] text-text mb-6">WHAT THIS DEMONSTRATES</h2>
+        <div class="space-y-3">
+          {[
+            'Zero-to-one product ownership — concept, architecture, design, and engineering, solo',
+            'Full-stack depth across auth, database, real-time, email, billing, and deployment',
+            'Product thinking alongside technical execution — ICP-driven decisions, not just feature lists',
+            'Modern stack fluency: Next.js App Router, Supabase, Clerk, Vercel, TypeScript throughout',
+            'Ability to scope and ship — a real product, live, with paying plan tiers',
+          ].map((point) => (
+            <div class="flex items-start gap-4 py-4 border-b border-border-subtle last:border-0">
+              <span class="text-accent mt-[3px] shrink-0">→</span>
+              <p class="text-[0.9375rem] leading-[1.65] text-text-muted m-0">{point}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div data-animate class="bg-surface border border-border rounded-card p-10 text-center">
+        <p class="text-lead text-text-muted leading-[1.65] mb-8 max-w-[480px] mx-auto">
+          Interested in working together? Whether you're an agency or a founder — let's talk.
+        </p>
+        <a href="/#contact" class="btn-primary">
+          Get in Touch
+          <ArrowUpRight size={16} />
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <FooterBar />
+</BaseLayout>
