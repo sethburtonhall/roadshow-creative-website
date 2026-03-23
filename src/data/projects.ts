@@ -14,6 +14,26 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "premise",
+    title: "Premise",
+    tagline: "Brief in. Scope out.",
+    description:
+      "An AI-powered technical scoping tool for design agencies. Paste a client brief and get a proposal-ready scope document in seconds — stack recommendation, phase breakdown, cost estimates, risks, and next steps.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "Clerk",
+      "Anthropic",
+      "Vercel",
+      "shadcn/ui",
+    ],
+    href: "https://usepremise.app",
+    featured: true,
+    year: "2026",
+    status: "live",
+  },
+  {
     slug: "village",
     title: "Village",
     tagline: "Group sign-ups made simple",
