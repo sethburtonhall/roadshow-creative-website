@@ -124,4 +124,22 @@ Going after "church volunteers who hate SignUpGenius" is more winnable than goin
 
 ---
 
+## Funnel Connection
+
+Village has three distinct growth mechanisms — two external, one built into the product itself:
+
+**1. SEO → Village**
+Frustrated organizers actively search for alternatives. "SignUpGenius alternative," "free group sign-up tool," "sign-up sheet app" — these are high-intent searches from people who already know they need a solution. A dedicated landing page targeting these terms is the highest-leverage acquisition move Village can make. The ICP is already looking; they just need to find Village.
+
+**2. Community word-of-mouth → Village**
+The three highest-signal sub-segments (churches, schools, sports teams) are tight-knit networks with shared tooling. One church admin tells another at their regional conference. One PTA lead shares it in the district Facebook group. One sports league coordinator posts it in the coaches' group chat. A single satisfied organizer in one of these networks can unlock dozens of others. This is the compounding growth mechanic — prioritize getting Village into one node of each network.
+
+**3. Participant → organizer loop (built into the product)**
+Every time an organizer shares a Village event link, participants see the product in action. A clean, ad-free experience is the best marketing Village has. Adding a visible "Create your own free event" CTA on the public sign-up page turns every event share into a potential acquisition. This is the most scalable channel long-term — it grows automatically with usage.
+
+**The sequence:**
+SEO brings the first organizers in. Word-of-mouth spreads Village within their communities. The participant loop generates new organizers from the audience Village already reaches. Each mechanism feeds the next.
+
+---
+
 *Last updated: March 2026*

@@ -11,7 +11,7 @@ Be findable and credible to agency founders who need an embedded technical lead.
 ## Profile
 
 **Headline:**
-Embedded Technical Lead for Digital Agencies · Roadshow Creative · Founder @ Village
+Embedded Technical Lead for Digital Agencies · Roadshow Creative · Founder @ Village · Building Premise
 
 **About:**
 Agencies bring me in when they need a technical lead they can trust to own it.
@@ -20,7 +20,7 @@ I embed in your team as tech lead and lead developer — handling architecture d
 
 I've spent 15+ years at the intersection of design, engineering, and product strategy. I know how agencies work, how to communicate with non-technical stakeholders, and how to ship without drama.
 
-Currently building Village — a modern group sign-up platform — as the first product under Roadshow Creative, my dev studio based in Oceanside, CA.
+Currently building two products under Roadshow Creative, my dev studio based in Oceanside, CA: Village — a modern group sign-up platform for community organizers — and Premise — an AI tool that generates complete technical scopes from client briefs, built specifically for agencies without a technical lead on staff.
 
 If you're an agency that keeps winning work you can't fully staff, let's talk.
 
@@ -56,7 +56,19 @@ Short opinions on stack choices, architecture, modern web dev. Not tutorials —
 
 ---
 
-### Pillar 3 — Agency + Engineering Observations
+### Pillar 3 — Building Premise in Public
+
+The same "building in public" energy as Village, but aimed directly at the agency audience. Product decisions, scoping philosophy, what you're learning about how agencies write proposals.
+
+**Example angles:**
+- Why you built Premise (the exact moment that prompted it)
+- A decision about what Premise outputs and why
+- Something you learned about how agencies actually scope projects
+- A milestone (launch, first Pro subscriber, first scope generated)
+
+---
+
+### Pillar 4 — Agency + Engineering Observations
 
 Content from the intersection of design and engineering is rare and highly relevant to your ICP. Agency founders recognize it immediately because it describes their world.
 
@@ -89,7 +101,7 @@ Content from the intersection of design and engineering is rare and highly relev
 
 ## Starter Posts
 
-See `linkedin-posts.md` for 6 ready-to-use posts across all three pillars.
+See `linkedin-posts.md` for 8 ready-to-use posts across all four pillars.
 
 ---
 

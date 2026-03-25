@@ -174,4 +174,22 @@ A production-ready product they're proud to demo — built by someone they trust
 
 ---
 
+## Funnel Connection
+
+Three channels feed Roadshow Creative — each one pre-qualifying leads before they ever reach out:
+
+**1. Premise → Roadshow Creative**
+Agencies using Premise to write technical scopes have already demonstrated three things: they take on technically complex client work, they don't have a technical lead in-house, and they're willing to pay to solve that gap. When they win the work and need someone to build it — that's the Roadshow Creative conversation. Premise users are the warmest possible cold leads.
+
+**2. Village → Roadshow Creative**
+Village is proof. An agency evaluating Seth sees he designed, built, and shipped a full SaaS product solo — auth, billing, onboarding, the full stack. They don't have to take his word for it. The product is live and they can use it. Village does more credibility work than any case study could.
+
+**3. LinkedIn → Roadshow Creative**
+Content about building Village, technical takes, and agency/engineering observations puts Seth in front of agency founders organically. Someone reads a post, checks the profile, lands on the site. The profile and site have to close the deal — which is why the ICP-aligned copy matters.
+
+**The compounding effect:**
+All three channels reinforce each other. Premise builds trust at the proposal stage. Village proves product ownership. LinkedIn keeps Seth visible between active engagements. Together they mean Roadshow Creative doesn't have to rely on cold outreach alone.
+
+---
+
 *Last updated: March 2026*

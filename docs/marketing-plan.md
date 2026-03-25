@@ -12,6 +12,9 @@ Stop broadcasting to everyone. Speak directly to the person most likely to hire 
 |----------|------------|---------------|
 | **Roadshow Creative** | Design-forward agency without a technical lead | Funded technical founder |
 | **Village** | Recurring community organizer (churches, schools, sports teams) who hates their current sign-up tool | — |
+| **Premise** | Design-forward agency without a technical lead (same as Roadshow Creative primary) | — |
+
+Note: Premise and Roadshow Creative share the same primary ICP. They reinforce each other — Premise gives agencies an immediate free tool; Roadshow Creative is the human they hire when the stakes are higher.
 
 **Full ICP docs:**
 - `docs/icp-roadshow.md`
@@ -47,19 +50,20 @@ Get the ICP clarity reflected in every existing surface before driving traffic a
 Be findable and credible to agency founders. Profile does the passive work; content builds visibility over time.
 
 **Profile updates:**
-- Headline: *Embedded Technical Lead for Digital Agencies · Roadshow Creative · Founder @ Village*
+- Headline: *Embedded Technical Lead for Digital Agencies · Roadshow Creative · Founder @ Village · Building Premise*
 - About: rewritten ICP-first (see `docs/linkedin-strategy.md` for full copy)
 
-**Content strategy:** 1–2 posts per week across three pillars:
+**Content strategy:** 1–2 posts per week across four pillars:
 1. Building Village in public
-2. Technical takes
-3. Agency + engineering observations
+2. Building Premise in public
+3. Technical takes
+4. Agency + engineering observations
 
 **Files:**
 - `docs/linkedin-strategy.md` — full strategy, pillars, format rules
-- `docs/linkedin-posts.md` — 6 ready-to-use starter posts
+- `docs/linkedin-posts.md` — 8 ready-to-use starter posts (includes Premise launch posts)
 
-**Status:** Profile copy ready to apply. Posts ready to use.
+**Status:** Profile copy ready to apply. Posts ready to use. Premise launch post ready to go.
 
 ---
 
@@ -77,6 +81,22 @@ Find 2–3 more agencies like Matic Digital. The goal of first contact is a spec
 - `docs/outreach-strategy.md` — target profile, where to find agencies, warm + cold templates, follow-up rule, tracking table
 
 **Status:** Strategy and templates ready. Execution is the next step.
+
+---
+
+## Phase 3b — Premise Launch ✅
+
+Premise is live at usepremise.app. Initial announcement goes through LinkedIn targeting the same agency audience as Roadshow Creative.
+
+**What Premise is:**
+An AI tool that generates a complete technical scope from a client brief — stack recommendation, phase breakdown, risks, team, assumptions, post-launch costs. Free tier: 2 scopes, no credit card. Pro: $29/mo.
+
+**Launch tactics:**
+- LinkedIn announcement post (see `docs/linkedin-posts.md` — Pillar 4, Post 7)
+- Premise reinforces Roadshow Creative credibility: *the person you hire also built a tool your agency can use right now*
+- ProductHunt launch (plan when ready for broader push)
+
+**Status:** Launch post ready. Site live.
 
 ---
 
@@ -109,11 +129,12 @@ Key tactics when ready:
 
 ## Immediate Next Actions
 
-1. **Apply LinkedIn profile updates** — headline and About section are written, just needs to be pasted in
-2. **Go back to the Matic Digital referral source** — ask if they know anyone else in a similar spot
-3. **Scan LinkedIn connections** for agency people — 20 minutes, make a short list
-4. **Build the cold target list** — start with Dribbble and Awwwards, find 10–15 agencies that fit the profile
-5. **Launch Village** — the site is ready; get it in front of real users
+1. **Post Premise launch post on LinkedIn** — post is ready in `docs/linkedin-posts.md` (Pillar 4, Post 7)
+2. **Apply LinkedIn profile updates** — headline and About section updated to include Premise; just needs to be pasted in
+3. **Go back to the Matic Digital referral source** — ask if they know anyone else in a similar spot
+4. **Scan LinkedIn connections** for agency people — 20 minutes, make a short list
+5. **Build the cold target list** — start with Dribbble and Awwwards, find 10–15 agencies that fit the profile
+6. **Launch Village** — the site is ready; get it in front of real users
 
 ---
 

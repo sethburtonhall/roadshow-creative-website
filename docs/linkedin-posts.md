@@ -1,6 +1,6 @@
 # LinkedIn Starter Posts
 
-Six ready-to-use posts across all three content pillars. Edit to match your voice before posting. Space them out — don't post these back to back.
+Eight ready-to-use posts across all four content pillars. Edit to match your voice before posting. Space them out — don't post these back to back.
 
 ---
 
@@ -24,6 +24,8 @@ Village is a group sign-up platform built for community organizers — clean, ad
 
 If you organize anything for a community and you're tired of sending links you're not proud of, I'd love to show you what we built. → usevillage.app
 
+#buildinpublic #saas
+
 ---
 
 **Post 2 — A product decision**
@@ -39,6 +41,8 @@ It meant rethinking how we handle identity, email delivery, reminders, and check
 The best product decisions are usually the ones that trade your complexity for the user's simplicity.
 
 What's a design decision you've made that looked simple from the outside but wasn't?
+
+#buildinpublic
 
 ---
 
@@ -60,6 +64,8 @@ Save Next.js for what it's actually built for: dynamic apps with real data needs
 
 Right tool, right job.
 
+#webdev #buildinpublic
+
 ---
 
 **Post 4 — A dev philosophy take**
@@ -73,6 +79,8 @@ What problem are we actually solving? Is this the right abstraction? What breaks
 Most junior devs jump straight to implementation. Senior devs spend the first hour slowing things down — mapping out the decisions that are hard to undo.
 
 That's the work. The code is just the output.
+
+#webdev
 
 ---
 
@@ -96,6 +104,8 @@ I've spent years being that person — embedded in agency teams, handling the te
 
 If your agency keeps winning work you can't fully staff, that's the gap.
 
+#agencylife
+
 ---
 
 **Post 6 — Design and engineering stop talking**
@@ -111,6 +121,48 @@ What broke isn't the process. It's that no one was fluent in both languages.
 Design and engineering aren't opposites — they're in conversation the whole time. Someone on the project needs to speak both. To translate a layout decision into a data model question. To push back on a design that's beautiful but will take three weeks to build and break on mobile.
 
 That's what a technical lead actually does. Not just write the hard code. Bridge the gap.
+
+#agencylife #webdev
+
+---
+
+## Pillar 4 — Building Premise in Public
+
+---
+
+**Post 7 — Launch announcement** ← use this first
+
+Premise is live.
+
+Most design agencies don't have a technical lead on staff. So when a client brief lands asking for custom auth, payment tiers, or real-time features — the proposal either gets vague, borrows someone else's scope, or stalls while you track down a contractor.
+
+I built Premise to fix that moment.
+
+Paste a client brief. Get back a complete technical scope in under a minute — recommended stack, phase breakdown with week estimates and cost ranges, technical risks, suggested team, assumptions and exclusions, post-launch infrastructure costs.
+
+Everything that usually requires a technical lead to produce. Free to try — 2 scopes, no credit card.
+
+→ usepremise.app
+
+#agencylife #buildinpublic
+
+---
+
+**Post 8 — The founding problem**
+
+There's a moment in agency work I kept seeing.
+
+The brief lands. It's a good project — the kind of work an agency is proud to win. But it asks for real technical depth: multi-tenant data model, payment tiers, some kind of real-time component.
+
+The design section of the proposal is sharp. The technical section is where things get quiet.
+
+Not because the agency is bad at their job. Because writing a credible technical scope requires knowing what questions to ask — and those questions live deep in the stack.
+
+That's the gap Premise is built for. Brief in. Scope out.
+
+→ usepremise.app
+
+#agencylife #buildinpublic
 
 ---
 
