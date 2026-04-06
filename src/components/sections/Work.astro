@@ -32,18 +32,21 @@ const { id = 'work' } = Astro.props;
       <ProjectCard {...project} />
     ))}
 
-    <!-- Placeholder card: coming soon -->
-    <article class="bg-surface border border-dashed border-border rounded-card p-8 flex flex-col items-start justify-center gap-3 min-h-[220px]">
-      <span class="font-mono text-[0.625rem] tracking-[0.18em] uppercase text-text-dim">Next project</span>
-      <p class="font-display text-[clamp(1.5rem,3vw,2rem)] text-in-progress m-0 tracking-[0.03em]">IN PROGRESS</p>
-      <p class="text-sm text-text-dim m-0 leading-[1.6]">Something new is being built. Check back soon.</p>
-    </article>
+    <!-- Placeholder cards container -->
+    <div class="contents">
+      <!-- Placeholder card: coming soon -->
+      <article class="bg-surface border border-dashed border-border rounded-card p-8 flex flex-col items-start justify-center gap-3 min-h-[220px]">
+        <span class="font-mono text-[0.625rem] tracking-[0.18em] uppercase text-text-dim">Next project</span>
+        <p class="font-display text-[clamp(1.5rem,3vw,2rem)] text-in-progress m-0 tracking-[0.03em]">IN PROGRESS</p>
+        <p class="text-sm text-text-dim m-0 leading-[1.6]">Something new is being built. Check back soon.</p>
+      </article>
 
-    <!-- NDA note card -->
-    <article class="bg-surface border border-dashed border-border rounded-card p-8 flex flex-col items-start justify-center gap-3 min-h-[220px]">
-      <span class="font-mono text-[0.625rem] tracking-[0.18em] uppercase text-text-dim">Client work</span>
-      <p class="font-display text-[clamp(1.5rem,3vw,2rem)] text-text m-0 tracking-[0.03em]">UNDER NDA</p>
-      <p class="text-sm text-text-dim m-0 leading-[1.6]">Most client work is confidential. <a href="#contact" class="text-text-muted underline underline-offset-2 hover:text-text transition-colors duration-200">Happy to discuss on a call.</a></p>
-    </article>
+      <!-- NDA note card -->
+      <article class="bg-surface border border-dashed border-border rounded-card p-8 flex flex-col items-start justify-center gap-3 min-h-[220px]">
+        <span class="font-mono text-[0.625rem] tracking-[0.18em] uppercase text-text-dim">Client work</span>
+        <p class="font-display text-[clamp(1.5rem,3vw,2rem)] text-text m-0 tracking-[0.03em]">UNDER NDA</p>
+        <p class="text-sm text-text-dim m-0 leading-[1.6]">Most client work is confidential. <a href="#contact" class="text-text-muted underline underline-offset-2 hover:text-text transition-colors duration-200">Happy to discuss on a call.</a></p>
+      </article>
+    </div>
   </div>
 </section>

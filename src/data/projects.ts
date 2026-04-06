@@ -8,7 +8,7 @@ export interface Project {
   caseStudyHref?: string;
   featured?: boolean;
   year: string;
-  status: "live" | "in-progress" | "concept";
+  status: "live" | "in-progress" | "concept" | "coming soon";
   imageSrc?: string;
 }
 
@@ -51,9 +51,30 @@ export const projects: Project[] = [
     ],
     href: "https://www.usevillage.app",
     caseStudyHref: "/work/village",
-    featured: true,
+    // featured: true,
     year: "2026",
     status: "live",
+  },
+  {
+    slug: "village-live",
+    title: "Village Live",
+    tagline: "Real-time event management",
+    description:
+      "A companion app to Village that brings events to life in real-time. Features live timeline control, attendee check-in sync, crowd reactions, Q&A management, and instant broadcasts — all designed to run seamless in-person and hybrid events.",
+    tags: [
+      "RedwoodSDK",
+      "TypeScript",
+      "React",
+      "Cloudflare Workers",
+      "Clerk",
+      "Supabase",
+      "Tailwind CSS",
+      "shadcn/ui",
+    ],
+    href: "https://live.usevillage.app",
+    // featured: true,
+    year: "2026",
+    status: "coming soon",
   },
   {
     slug: "aiman-hd",
@@ -71,6 +92,7 @@ export const projects: Project[] = [
       "Netlify",
     ],
     href: "https://aiman-hd.netlify.app/",
+    // featured: true,
     year: "2025",
     status: "live",
   },
