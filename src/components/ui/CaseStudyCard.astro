@@ -1,0 +1,87 @@
+---
+import type { CaseStudy } from '@/data/caseStudies';
+import { ArrowUpRight } from "@lucide/astro";
+
+interface Props extends CaseStudy {}
+
+const { title, industry, summary, problem, solution, results, tags, link } = Astro.props;
+---
+
+<article
+  class="relative bg-surface border border-border rounded-card p-10 flex flex-col gap-6 transition-[border-color,box-shadow,transform] duration-320 ease-smooth overflow-hidden h-full hover:border-accent hover:shadow-[0_0_0_1px_rgba(249,115,22,0.05),0_8px_32px_rgba(0,0,0,0.4),0_1px_0_rgba(249,115,22,0.1)_inset] hover:transform hover:translate-y-[-2px]"
+>
+  <!-- Background glow -->
+  <div
+    aria-hidden="true"
+    class="absolute -top-[40%] -right-[20%] w-[60%] pb-[60%] bg-[radial-gradient(ellipse_at_center,rgba(249,115,22,0.06)_0%,transparent_70%)] pointer-events-none rounded-full"
+  ></div>
+
+  <!-- Industry tag -->
+  <div class="relative z-1">
+    <span class="font-mono text-label tracking-widest uppercase text-accent bg-accent/10 border border-accent/20 rounded-sm px-2 py-1">
+      {industry}
+    </span>
+  </div>
+
+  <!-- Title -->
+  <div class="relative z-1">
+    <h3 class="font-display text-[clamp(1.75rem,3.5vw,2.5rem)] leading-[0.95] tracking-[0.01em] m-0 text-text">
+      {title.toUpperCase()}
+    </h3>
+  </div>
+
+  <!-- Summary -->
+  <p class="text-[0.9375rem] leading-[1.65] text-text-muted m-0 relative z-1">
+    {summary}
+  </p>
+
+  <!-- Problem/Solution/Results -->
+  <div class="relative z-1 space-y-4">
+    <div>
+      <h4 class="font-semibold text-text-muted text-xs uppercase tracking-wide mb-1.5">The Challenge</h4>
+      <p class="text-sm text-text-dim leading-relaxed">{problem}</p>
+    </div>
+    <div>
+      <h4 class="font-semibold text-text-muted text-xs uppercase tracking-wide mb-1.5">The Approach</h4>
+      <p class="text-sm text-text-dim leading-relaxed">{solution}</p>
+    </div>
+    <div>
+      <h4 class="font-semibold text-text-muted text-xs uppercase tracking-wide mb-1.5">The Outcome</h4>
+      <p class="text-sm text-text-dim leading-relaxed">{results}</p>
+    </div>
+  </div>
+
+  <!-- Tags -->
+  <div class="flex flex-wrap gap-1.5 relative z-1">
+    {tags.map((tag) => (
+      <span class="font-mono text-label tracking-widest uppercase text-text-dim bg-surface-2 border border-border rounded-sm px-2 py-1">
+        {tag}
+      </span>
+    ))}
+  </div>
+
+  <!-- Link -->
+  {link && (
+    <div class="flex items-center border-t border-border-subtle pt-5 mt-auto relative z-1">
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-link inline-flex items-center gap-2 text-sm font-semibold text-accent no-underline tracking-[0.01em]"
+      >
+        View Full Case Study
+        <ArrowUpRight size={16} class="project-link-icon" />
+      </a>
+    </div>
+  )}
+</article>
+
+<style>
+  .project-link-icon {
+    transition: transform var(--duration-base) var(--ease-smooth);
+  }
+
+  article:hover .project-link-icon {
+    transform: translate(2px, -2px);
+  }
+</style>

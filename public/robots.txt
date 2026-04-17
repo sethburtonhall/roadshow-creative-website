@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /work/village
+
+Sitemap: https://roadshowcreative.dev/sitemap.xml

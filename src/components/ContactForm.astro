@@ -1,0 +1,270 @@
+---
+import { Mail } from "@lucide/astro";
+
+const CAL_URL = "https://cal.com/roadshow-creative";
+---
+
+<div class="w-full max-w-[500px] mx-auto space-y-6">
+  <form id="contact-form" class="space-y-4">
+    <!-- Name -->
+    <div>
+      <label for="name" class="block font-mono text-label tracking-[0.12em] uppercase text-text-muted mb-2">
+        Your Name
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        placeholder="Your Name"
+        class="w-full px-4 py-2.5 bg-surface border border-border rounded-card text-text placeholder:text-text-dim transition-[border-color,box-shadow] duration-320 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent focus:ring-offset-2 focus:ring-offset-base"
+      />
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="email" class="block font-mono text-label tracking-[0.12em] uppercase text-text-muted mb-2">
+        Email
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        placeholder="you@example.com"
+        class="w-full px-4 py-2.5 bg-surface border border-border rounded-card text-text placeholder:text-text-dim transition-[border-color,box-shadow] duration-320 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent focus:ring-offset-2 focus:ring-offset-base"
+      />
+    </div>
+
+    <!-- Company -->
+    <div>
+      <label for="company" class="block font-mono text-label tracking-[0.12em] uppercase text-text-muted mb-2">
+        Company <span class="text-text-dim">(optional)</span>
+      </label>
+      <input
+        type="text"
+        id="company"
+        name="company"
+        placeholder="Your company or agency"
+        class="w-full px-4 py-2.5 bg-surface border border-border rounded-card text-text placeholder:text-text-dim transition-[border-color,box-shadow] duration-320 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent focus:ring-offset-2 focus:ring-offset-base"
+      />
+    </div>
+
+    <!-- Message -->
+    <div>
+      <label for="message" class="block font-mono text-label tracking-[0.12em] uppercase text-text-muted mb-2">
+        Message
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        required
+        rows={4}
+        placeholder="Tell me about your project, timeline, and what you're building..."
+        class="w-full px-4 py-2.5 bg-surface border border-border rounded-card text-text placeholder:text-text-dim transition-[border-color,box-shadow] duration-320 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent focus:ring-offset-2 focus:ring-offset-base resize-none"
+      ></textarea>
+    </div>
+
+    <!-- Honeypot -->
+    <input
+      type="text"
+      name="website"
+      style="display:none"
+      tabindex="-1"
+      autocomplete="off"
+    />
+
+    <!-- Submit Button -->
+    <div class="flex gap-3 justify-center items-center pt-4">
+      <button
+        type="submit"
+        id="submit-btn"
+        class="btn-primary inline-flex items-center gap-2 relative"
+      >
+        <Mail size={16} class="transition-opacity duration-320" data-submit-icon />
+        <span data-submit-text>Send Message</span>
+        <span class="absolute opacity-0 transition-opacity duration-320" data-submit-spinner>
+          <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </span>
+      </button>
+      <a href={CAL_URL} target="_blank" rel="noopener noreferrer" class="btn-ghost">
+        Book a call
+      </a>
+    </div>
+
+    <!-- Status Messages -->
+    <div id="form-feedback" class="text-sm text-center opacity-0 transition-opacity duration-320 pointer-events-none">
+      <p id="success-msg" class="text-live hidden">Message sent! I'll be in touch within 24 hours.</p>
+      <p id="error-msg" class="text-[#ff6b6b] hidden">Something went wrong. Please try again or email hello@roadshowcreative.dev</p>
+    </div>
+  </form>
+</div>
+
+<script is:inline>
+  const INIT = "INIT";
+  const SUBMITTING = "SUBMITTING";
+  const ERROR = "ERROR";
+  const SUCCESS = "SUCCESS";
+  let formState = INIT;
+
+  const form = document.getElementById("contact-form");
+  const submitBtn = document.getElementById("submit-btn");
+  const feedback = document.getElementById("form-feedback");
+  const successMsg = document.getElementById("success-msg");
+  const errorMsg = document.getElementById("error-msg");
+  const submitIcon = submitBtn?.querySelector("[data-submit-icon]");
+  const submitSpinner = submitBtn?.querySelector("[data-submit-spinner]");
+  const submitText = submitBtn?.querySelector("[data-submit-text]");
+
+  function hasRecentSubmission() {
+    const time = new Date();
+    const timestamp = time.valueOf();
+    const previousTimestamp = localStorage.getItem("contact-form-timestamp");
+
+    if (previousTimestamp && Number(previousTimestamp) + 60 * 1000 > timestamp) {
+      return true;
+    }
+
+    localStorage.setItem("contact-form-timestamp", timestamp.toString());
+    return false;
+  }
+
+  function isValidEmail(email) {
+    return /.+@.+/.test(email);
+  }
+
+  function resetForm() {
+    form?.reset();
+    formState = INIT;
+    submitBtn.disabled = false;
+  }
+
+  function showSuccess() {
+    formState = SUCCESS;
+    successMsg?.classList.remove("hidden");
+    errorMsg?.classList.add("hidden");
+    feedback?.classList.remove("opacity-0");
+
+    if (submitIcon && submitSpinner && submitText) {
+      submitIcon.classList.remove("opacity-0");
+      submitSpinner.classList.add("opacity-0");
+      submitText.textContent = "Message sent!";
+    }
+
+    setTimeout(() => {
+      feedback?.classList.add("opacity-0");
+      resetForm();
+      submitText.textContent = "Send Message";
+    }, 3500);
+  }
+
+  function showError(message) {
+    formState = ERROR;
+    errorMsg.textContent = message || "Something went wrong. Please try again.";
+    errorMsg?.classList.remove("hidden");
+    successMsg?.classList.add("hidden");
+    feedback?.classList.remove("opacity-0");
+
+    if (submitIcon && submitSpinner && submitText) {
+      submitIcon.classList.remove("opacity-0");
+      submitSpinner.classList.add("opacity-0");
+      submitText.textContent = "Send Message";
+    }
+
+    submitBtn.disabled = false;
+    localStorage.setItem("contact-form-timestamp", "");
+
+    setTimeout(() => {
+      feedback?.classList.add("opacity-0");
+    }, 4000);
+  }
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (formState !== INIT) return;
+
+    const name = form.querySelector("#name").value;
+    const email = form.querySelector("#email").value;
+    const company = form.querySelector("#company").value || "";
+    const message = form.querySelector("#message").value;
+    const website = form.querySelector('input[name="website"]').value;
+
+    // Honeypot check
+    if (website) {
+      console.warn("Bot submission detected");
+      return;
+    }
+
+    // Validation
+    if (!name || !email || !message) {
+      showError("Please fill in all required fields");
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      showError("Please enter a valid email");
+      return;
+    }
+
+    if (hasRecentSubmission()) {
+      showError("Too many submissions, please try again in a little while");
+      return;
+    }
+
+    formState = SUBMITTING;
+    submitBtn.disabled = true;
+    if (submitIcon && submitSpinner && submitText) {
+      submitIcon.classList.add("opacity-0");
+      submitSpinner.classList.remove("opacity-0");
+      submitText.textContent = "Sending...";
+    }
+
+    console.log("Submitting form with data:", { name, email, company, message: message.substring(0, 50) + "..." });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          company,
+          message,
+        }),
+      });
+
+      console.log("Response status:", response.status);
+      console.log("Response headers:", Object.fromEntries(response.headers.entries()));
+
+      const data = await response.json();
+      console.log("Response data:", data);
+
+      if (response.ok) {
+        console.log("Form submission successful");
+        showSuccess();
+        form.reset();
+      } else {
+        console.log("Form submission failed:", data.error);
+        showError(data.error || "Failed to submit form");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      console.error("Error details:", {
+        message: error.message,
+        stack: error.stack,
+        name: error.name
+      });
+      if (error.message === "Failed to fetch") {
+        showError("Network error. Please check your connection and try again.");
+      } else {
+        showError(error.message || "Something went wrong, please try again");
+      }
+    }
+  });
+</script>

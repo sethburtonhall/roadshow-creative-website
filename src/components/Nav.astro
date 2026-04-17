@@ -1,5 +1,5 @@
 ---
-import { Compass } from "@lucide/astro";
+import { Compass, Menu, X } from "@lucide/astro";
 ---
 
 <nav
@@ -20,26 +20,132 @@ import { Compass } from "@lucide/astro";
 
   <!-- Desktop links -->
   <div class="nav-links hidden sm:flex items-center gap-10">
-    <a href="#services" class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text">Services</a>
-    <a href="#work" class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text">Work</a>
-    <a href="#about" class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text">About</a>
+    <a
+      href="#services"
+      data-nav-link="services"
+      class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text relative"
+    >
+      Services
+      <span class="nav-indicator absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-accent opacity-0 transition-opacity duration-320"></span>
+    </a>
+    <a
+      href="#work"
+      data-nav-link="work"
+      class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text relative"
+    >
+      Work
+      <span class="nav-indicator absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-accent opacity-0 transition-opacity duration-320"></span>
+    </a>
+    <a
+      href="#about"
+      data-nav-link="about"
+      class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text relative"
+    >
+      About
+      <span class="nav-indicator absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-accent opacity-0 transition-opacity duration-320"></span>
+    </a>
   </div>
 
-  <!-- CTA -->
-  <a href="#contact" class="btn-primary py-2 px-5 text-[0.8125rem]">
+  <!-- Mobile menu button (replaces CTA on mobile) -->
+  <button
+    id="mobile-menu-btn"
+    class="sm:hidden p-2 text-text-muted hover:text-text transition-colors duration-200 cursor-pointer"
+    aria-label="Toggle navigation menu"
+    aria-expanded="false"
+  >
+    <Menu size={20} class="block mobile-menu-icon-open" />
+    <X size={20} class="hidden mobile-menu-icon-close" />
+  </button>
+
+  <!-- CTA (desktop only) -->
+  <a href="#contact" class="btn-primary py-2 px-5 text-[0.8125rem] !hidden sm:!inline-flex" aria-label="Contact CTA">
     Let's Talk
   </a>
 </nav>
 
+<!-- Mobile menu drawer -->
+<div
+  id="mobile-menu"
+  class="fixed top-16 left-0 right-0 bottom-0 bg-base hidden flex flex-col gap-6 px-8 py-8 overflow-y-auto z-99"
+>
+  <a href="#services" class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">Services</a>
+  <a href="#work" class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">Work</a>
+  <a href="#about" class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">About</a>
+  <a href="#testimonials" class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">Testimonials</a>
+  <a href="#contact" class="btn-primary py-3 px-6 text-center w-full">Let's Talk</a>
+</div>
+
 <script>
   const nav = document.getElementById('nav');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuOpen = mobileMenuBtn?.querySelector('.mobile-menu-icon-open');
+  const mobileMenuClose = mobileMenuBtn?.querySelector('.mobile-menu-icon-close');
+
+  // Toggle mobile menu
+  mobileMenuBtn?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.contains('hidden') === false;
+    if (isOpen) {
+      mobileMenu?.classList.add('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenuOpen?.classList.remove('hidden');
+      mobileMenuClose?.classList.add('hidden');
+    } else {
+      mobileMenu?.classList.remove('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      mobileMenuOpen?.classList.add('hidden');
+      mobileMenuClose?.classList.remove('hidden');
+    }
+  });
+
+  // Close menu when clicking a link
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+      mobileMenuOpen?.classList.remove('hidden');
+      mobileMenuClose?.classList.add('hidden');
+    });
+  });
+
+  // Scroll effects and active section indicator
   const onScroll = () => {
     if (!nav) return;
+
+    // Add scroll effect
     if (window.scrollY > 60) {
       nav.classList.add('nav-scrolled');
     } else {
       nav.classList.remove('nav-scrolled');
     }
+
+    // Update active section indicator
+    const sections = ['services', 'work', 'about'];
+    const navLinks = document.querySelectorAll('[data-nav-link]');
+
+    let activeFound = false;
+
+    sections.forEach(section => {
+      const element = document.getElementById(section);
+      if (!element) return;
+
+      const rect = element.getBoundingClientRect();
+      const isInView = rect.top <= window.innerHeight * 0.25 && rect.bottom > 0;
+
+      const link = document.querySelector(`[data-nav-link="${section}"]`);
+      const indicator = link?.querySelector('.nav-indicator');
+
+      if (isInView && !activeFound) {
+        indicator?.classList.add('opacity-100');
+        indicator?.classList.remove('opacity-0');
+        activeFound = true;
+      } else {
+        indicator?.classList.remove('opacity-100');
+        indicator?.classList.add('opacity-0');
+      }
+    });
   };
+
   window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // Call on load
 </script>

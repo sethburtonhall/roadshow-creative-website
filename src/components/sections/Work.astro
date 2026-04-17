@@ -1,6 +1,8 @@
 ---
 import ProjectCard from '@/components/ui/ProjectCard.astro';
+import CaseStudyCard from '@/components/ui/CaseStudyCard.astro';
 import { projects } from '@/data/projects';
+import { caseStudies } from '@/data/caseStudies';
 
 interface Props {
   id?: string;
@@ -16,10 +18,10 @@ const { id = 'work' } = Astro.props;
   <div data-animate class="flex items-end justify-between mb-14 gap-8 flex-wrap">
     <div>
       <div class="section-label mb-4">Selected Work</div>
-      <h2 class="text-headline text-text m-0">PROJECTS</h2>
+      <h2 class="text-headline text-text m-0">FEATURED WORK</h2>
     </div>
     <p class="text-[0.9375rem] text-text-muted max-w-[320px] m-0 leading-[1.65] text-right sm:text-right max-sm:text-left work-subtext">
-      Products built end-to-end — conception through deployment.
+      SaaS products and client projects — from concept through scale.
     </p>
   </div>
 
@@ -47,6 +49,29 @@ const { id = 'work' } = Astro.props;
         <p class="font-display text-[clamp(1.5rem,3vw,2rem)] text-text m-0 tracking-[0.03em]">UNDER NDA</p>
         <p class="text-sm text-text-dim m-0 leading-[1.6]">Most client work is confidential. <a href="#contact" class="text-text-muted underline underline-offset-2 hover:text-text transition-colors duration-200">Happy to discuss on a call.</a></p>
       </article>
+    </div>
+  </div>
+
+  <!-- Case Studies Section -->
+  <div class="mt-section-lg pt-section-lg border-t border-border">
+    <div data-animate class="flex items-end justify-between mb-14 gap-8 flex-wrap">
+      <div>
+        <div class="section-label mb-4">Recent Engagements</div>
+        <h3 class="text-headline text-text m-0">CASE STUDIES</h3>
+      </div>
+      <p class="text-[0.9375rem] text-text-muted max-w-[320px] m-0 leading-[1.65] text-right sm:text-right max-sm:text-left">
+        Modernization and architectural leadership across industries.
+      </p>
+    </div>
+
+    <!-- Case studies grid -->
+    <div
+      data-animate-stagger
+      class="grid gap-6 grid-cols-[repeat(auto-fill,minmax(min(100%,520px),1fr))]"
+    >
+      {caseStudies.map((caseStudy) => (
+        <CaseStudyCard {...caseStudy} />
+      ))}
     </div>
   </div>
 </section>
