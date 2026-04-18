@@ -98,7 +98,7 @@ const CAL_URL = "https://cal.com/roadshow-creative";
     <!-- Status Messages -->
     <div id="form-feedback" class="text-sm text-center opacity-0 transition-opacity duration-320 pointer-events-none">
       <p id="success-msg" class="text-live hidden">Message sent! I'll be in touch within 24 hours.</p>
-      <p id="error-msg" class="text-[#ff6b6b] hidden">Something went wrong. Please try again or email hello@roadshowcreative.dev</p>
+      <p id="error-msg" class="text-error hidden">Something went wrong. Please try again or email hello@roadshowcreative.dev</p>
     </div>
   </form>
 </div>
@@ -195,7 +195,6 @@ const CAL_URL = "https://cal.com/roadshow-creative";
 
     // Honeypot check
     if (website) {
-      console.warn("Bot submission detected");
       return;
     }
 
@@ -223,8 +222,6 @@ const CAL_URL = "https://cal.com/roadshow-creative";
       submitText.textContent = "Sending...";
     }
 
-    console.log("Submitting form with data:", { name, email, company, message: message.substring(0, 50) + "..." });
-
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -239,27 +236,15 @@ const CAL_URL = "https://cal.com/roadshow-creative";
         }),
       });
 
-      console.log("Response status:", response.status);
-      console.log("Response headers:", Object.fromEntries(response.headers.entries()));
-
       const data = await response.json();
-      console.log("Response data:", data);
 
       if (response.ok) {
-        console.log("Form submission successful");
         showSuccess();
         form.reset();
       } else {
-        console.log("Form submission failed:", data.error);
         showError(data.error || "Failed to submit form");
       }
     } catch (error) {
-      console.error("Form submission error:", error);
-      console.error("Error details:", {
-        message: error.message,
-        stack: error.stack,
-        name: error.name
-      });
       if (error.message === "Failed to fetch") {
         showError("Network error. Please check your connection and try again.");
       } else {
