@@ -55,7 +55,7 @@ const articleSchema = {
 
       <!-- Content -->
       <section class="py-12 md:py-16 px-6">
-        <div class="max-w-2xl mx-auto prose prose-slate prose-invert max-w-none">
+        <div class="max-w-2xl mx-auto max-w-none">
           <h2>Why This Matters</h2>
           <p>
             The founding team makes or breaks a startup. If you're a non-technical founder with a great idea and market insight, your technical co-founder is critical. They handle the engineering, set the technical direction, and often become your de facto CTO.
@@ -221,32 +221,3 @@ const articleSchema = {
   <FooterBar />
 </BaseLayout>
 
-<style is:global>
-  .prose {
-    color: inherit;
-  }
-
-  .prose h2 {
-    @apply text-2xl font-bold font-bebas mt-8 mb-4 text-slate-900;
-  }
-
-  .prose h3 {
-    @apply text-xl font-semibold mt-6 mb-3 text-slate-900;
-  }
-
-  .prose p {
-    @apply text-lg text-slate-700 mb-4 leading-relaxed;
-  }
-
-  .prose ul {
-    @apply list-disc list-inside space-y-2 text-slate-700 mb-4;
-  }
-
-  .prose li {
-    @apply text-slate-700;
-  }
-
-  .prose strong {
-    @apply font-semibold text-slate-900;
-  }
-</style>
