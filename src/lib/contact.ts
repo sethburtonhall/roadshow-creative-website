@@ -1,5 +1,7 @@
 const LOOPS_API_KEY = import.meta.env.LOOPS_API_KEY;
-const LOOPS_TEMPLATE_ID = "cmo3e2t8a038z0i0b00pu36av";
+const LOOPS_USER_TEMPLATE_ID = "cmo3e2t8a038z0i0b00pu36av";
+const LOOPS_ADMIN_TEMPLATE_ID = "cmo3lv1u3004a0iyncbxbf68b";
+const ADMIN_EMAIL = "seth@roadshowcreative.dev";
 
 export async function sendContactMessage(data: {
   email: string;
@@ -11,7 +13,7 @@ export async function sendContactMessage(data: {
     throw new Error("API configuration error");
   }
 
-  if (!LOOPS_TEMPLATE_ID) {
+  if (!LOOPS_USER_TEMPLATE_ID) {
     throw new Error("Template configuration error");
   }
 
@@ -26,7 +28,7 @@ export async function sendContactMessage(data: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        transactionalId: LOOPS_TEMPLATE_ID,
+        transactionalId: LOOPS_USER_TEMPLATE_ID,
         email: data.email,
         dataVariables: {
           firstName,
@@ -44,5 +46,30 @@ export async function sendContactMessage(data: {
     }
   } catch (err) {
     throw err;
+  }
+
+  // Send admin notification
+  if (LOOPS_ADMIN_TEMPLATE_ID) {
+    try {
+      await fetch("https://app.loops.so/api/v1/transactional", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${LOOPS_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          transactionalId: LOOPS_ADMIN_TEMPLATE_ID,
+          email: ADMIN_EMAIL,
+          dataVariables: {
+            name: data.name,
+            email: data.email,
+            company: data.company || "Not provided",
+            message: data.message,
+          },
+        }),
+      });
+    } catch (err) {
+      // Don't fail user submission if admin notification fails
+    }
   }
 }
