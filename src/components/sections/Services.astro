@@ -24,17 +24,10 @@ const { id = 'services' } = Astro.props;
   <!-- Services list -->
   <div class="relative z-1">
     {services.map((service, index) => {
-      let href = '#';
-      if (service.id === 'tech-lead') href = '/services/technical-leadership';
-      else if (service.id === 'full-stack') href = '/services/saas-development';
-      else if (service.id === 'agentic-engineering') href = '/services/agentic-engineering';
-      else if (service.id === 'frontend-ui') href = '/services/frontend-engineering';
-      else if (service.id === 'saas-build') href = '/services/saas-development';
-
       const isLast = index === services.length - 1;
       return (
       <a
-        href={href}
+        href="#"
         class={`service-item grid max-sm:grid-cols-[3.5rem_1fr] grid-cols-[5rem_1fr_auto] gap-8 items-start py-10 border-t border-border${isLast ? ' border-b' : ''} block no-underline hover:bg-surface/50 transition-colors px-0 cursor-pointer`}
         data-animate
       >
