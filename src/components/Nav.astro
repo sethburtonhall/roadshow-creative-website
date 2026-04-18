@@ -123,27 +123,44 @@ import { Compass, Menu, X } from "@lucide/astro";
     const sections = ['services', 'work', 'about'];
     const navLinks = document.querySelectorAll('[data-nav-link]');
 
-    let activeFound = false;
+    // Clear all indicators first
+    navLinks.forEach(link => {
+      const indicator = link?.querySelector('.nav-indicator');
+      indicator?.classList.remove('opacity-100');
+      indicator?.classList.add('opacity-0');
+    });
+
+    // Find the section that's most in view
+    let bestSection = null;
+    let bestScore = Infinity;
 
     sections.forEach(section => {
       const element = document.getElementById(section);
       if (!element) return;
 
       const rect = element.getBoundingClientRect();
-      const isInView = rect.top <= window.innerHeight * 0.25 && rect.bottom > 0;
-
-      const link = document.querySelector(`[data-nav-link="${section}"]`);
-      const indicator = link?.querySelector('.nav-indicator');
-
-      if (isInView && !activeFound) {
-        indicator?.classList.add('opacity-100');
-        indicator?.classList.remove('opacity-0');
-        activeFound = true;
-      } else {
-        indicator?.classList.remove('opacity-100');
-        indicator?.classList.add('opacity-0');
+      const viewportHeight = window.innerHeight;
+      const navHeight = 64; // Approximate nav height
+      
+      // Calculate how far the section top is from the ideal position (just below nav)
+      const distanceFromIdeal = Math.abs(rect.top - navHeight);
+      
+      // Only consider sections that are at least partially visible
+      const isVisible = rect.bottom > navHeight && rect.top < viewportHeight;
+      
+      if (isVisible && distanceFromIdeal < bestScore) {
+        bestScore = distanceFromIdeal;
+        bestSection = section;
       }
     });
+
+    // Highlight the best section
+    if (bestSection) {
+      const link = document.querySelector(`[data-nav-link="${bestSection}"]`);
+      const indicator = link?.querySelector('.nav-indicator');
+      indicator?.classList.add('opacity-100');
+      indicator?.classList.remove('opacity-0');
+    }
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
