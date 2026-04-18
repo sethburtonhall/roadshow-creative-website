@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = 'Roadshow Creative — Full-Stack Development Studio',
-  description = "Full-stack development studio. Building ambitious products end-to-end — from SaaS to marketing sites.",
+  title = 'Full-Stack Development & Technical Leadership — Roadshow Creative',
+  description = "Embedded technical lead & full-stack engineering for agencies & founders building SaaS and AI products. Oceanside-based, nationwide.",
   ogImage = '/og-image.jpg',
   canonicalUrl = Astro.url.href,
 } = Astro.props;
@@ -46,16 +46,17 @@ const {
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
+      "@type": "Organization",
       "name": "Roadshow Creative",
       "url": "https://roadshowcreative.dev",
       "logo": "https://roadshowcreative.dev/favicon.svg",
       "image": "https://roadshowcreative.dev/og-image.jpg",
-      "description": "Full-stack development studio. Building ambitious web products end-to-end — from SaaS to marketing sites.",
+      "description": "Full-stack development studio specializing in embedded technical leadership, agentic engineering, and SaaS development for agencies and founders.",
       "founder": {
         "@type": "Person",
         "name": "Seth Hall",
         "jobTitle": "Founder & Full-Stack Developer",
+        "description": "15+ years of experience building ambitious web products",
         "url": "https://roadshowcreative.dev",
         "sameAs": [
           "https://github.com/sethburtonhall",
@@ -64,12 +65,39 @@ const {
       },
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Oceanside",
         "addressLocality": "Oceanside",
         "addressRegion": "CA",
+        "postalCode": "92054",
         "addressCountry": "US"
       },
-      "areaServed": "Worldwide",
-      "serviceType": ["Full-Stack Web Development", "SaaS Development", "Technical Leadership", "Frontend Engineering"]
+      "areaServed": ["US", "Worldwide"],
+      "serviceType": ["Full-Stack Web Development", "SaaS Development", "Technical Leadership", "Agentic Engineering", "Frontend Engineering"],
+      "knowsAbout": ["Full-Stack Development", "Next.js", "TypeScript", "React", "PostgreSQL", "Vercel", "AI Agents", "SaaS Architecture", "Technical Leadership"]
+    })} />
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Roadshow Creative",
+      "image": "https://roadshowcreative.dev/og-image.jpg",
+      "description": "Full-stack development studio in San Diego area specializing in technical leadership and SaaS development.",
+      "url": "https://roadshowcreative.dev",
+      "telephone": "",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Oceanside",
+        "addressLocality": "Oceanside",
+        "addressRegion": "CA",
+        "postalCode": "92054",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoShape",
+        "areaServed": ["San Diego County", "California", "United States"]
+      },
+      "priceRange": "$$$$"
     })} />
 
 

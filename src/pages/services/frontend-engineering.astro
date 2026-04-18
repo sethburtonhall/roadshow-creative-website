@@ -1,0 +1,176 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Nav from '@/components/Nav.astro';
+import FooterBar from '@/components/ui/FooterBar.astro';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Frontend Engineering",
+  "description": "Pixel-precise UI with modern design systems. React, TypeScript, accessibility, performance.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Roadshow Creative",
+    "url": "https://roadshowcreative.dev"
+  },
+  "areaServed": ["US", "Worldwide"],
+  "serviceType": "Frontend Development & Design Systems"
+};
+---
+
+<BaseLayout title="Frontend Engineering — Design Systems & UI — Roadshow Creative" description="Pixel-precise interfaces with modern design systems. React, TypeScript, Tailwind CSS. Built for performance and accessibility.">
+  <Nav />
+
+  <main class="min-h-screen flex flex-col">
+    <!-- Service Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 px-6 border-b border-slate-200">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold font-bebas mb-4">Frontend Engineering</h1>
+        <p class="text-xl text-slate-600 mb-6">
+          Pixel-precise interfaces. Modern design systems. Performance and accessibility baked in.
+        </p>
+        <p class="text-lg text-slate-600">
+          Design partners: let's build the interface together. We translate your vision into scalable, performant code.
+        </p>
+      </div>
+    </section>
+
+    <!-- What We Build -->
+    <section class="py-16 md:py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">What We Build</h2>
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-3">Design Systems</h3>
+            <p class="text-slate-700">Scalable component libraries. Button, input, dialog, form, table—all designed once, reused everywhere. Consistency + speed.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-3">Interactive Interfaces</h3>
+            <p class="text-slate-700">Complex UIs that respond instantly. Real-time updates, smooth animations, keyboard navigation. Built with React + TypeScript.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-3">Performance-First UX</h3>
+            <p class="text-slate-700">Fast page loads. Optimized images. Lazy loading. Code splitting. Users notice speed.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-3">Accessible Design</h3>
+            <p class="text-slate-700">WCAG compliant. Keyboard navigation. Screen reader friendly. Good for users, good for SEO.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-3">Responsive & Mobile-First</h3>
+            <p class="text-slate-700">Works beautifully on every device. Designed mobile-first, scales to desktop. Touch-optimized.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Tech Stack -->
+    <section class="py-16 md:py-20 px-6 bg-slate-50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Our Tech Stack</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-lg font-semibold text-slate-900 mb-4">Frontend</h3>
+            <ul class="space-y-2 text-slate-700">
+              <li>• <strong>React</strong> — Component-based, fast, ecosystem</li>
+              <li>• <strong>TypeScript</strong> — Type safety, better DX</li>
+              <li>• <strong>Next.js</strong> — SSR, static generation, routing</li>
+              <li>• <strong>Tailwind CSS</strong> — Utility-first, fast to build</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-slate-900 mb-4">Tools & Standards</h3>
+            <ul class="space-y-2 text-slate-700">
+              <li>• <strong>Astro</strong> — Static + interactive hybrid</li>
+              <li>• <strong>shadcn/ui</strong> — Accessible component library</li>
+              <li>• <strong>Testing</strong> — Vitest, Playwright</li>
+              <li>• <strong>Code Quality</strong> — ESLint, Prettier</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design Collaboration -->
+    <section class="py-16 md:py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">How We Work With Designers</h2>
+        <ol class="space-y-8">
+          <li class="flex gap-6">
+            <span class="text-2xl font-bold text-accent flex-shrink-0">1</span>
+            <div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Understand the Vision</h3>
+              <p class="text-slate-700">We sit with your designer, understand the strategy, intent, and user workflows. Not just pixels—purpose.</p>
+            </div>
+          </li>
+          <li class="flex gap-6">
+            <span class="text-2xl font-bold text-accent flex-shrink-0">2</span>
+            <div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Build Design System</h3>
+              <p class="text-slate-700">Create scalable components. Collaborate on naming, structure, variants. Designer and dev version in sync.</p>
+            </div>
+          </li>
+          <li class="flex gap-6">
+            <span class="text-2xl font-bold text-accent flex-shrink-0">3</span>
+            <div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Implement Features</h3>
+              <p class="text-slate-700">Build pages/features using design system. Iterate with designer. Pixel-perfect + performant.</p>
+            </div>
+          </li>
+          <li class="flex gap-6">
+            <span class="text-2xl font-bold text-accent flex-shrink-0">4</span>
+            <div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Test & Polish</h3>
+              <p class="text-slate-700">Test responsiveness, interactions, performance. Polish animations and micro-interactions.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Why Roadshow -->
+    <section class="py-16 md:py-20 px-6 bg-slate-50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Why Roadshow Creative for Frontend</h2>
+        <ul class="space-y-4 text-slate-700">
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Expert</span>
+            <span>React, TypeScript, Next.js, Tailwind—10+ years shipping interfaces</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Design Partner</span>
+            <span>We speak design language and engineer language. Bridge the gap.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Performance</span>
+            <span>Interfaces that are fast. Users notice. We optimize from day one.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Accessibility</span>
+            <span>WCAG-compliant by default. Not bolted on later.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Maintainable</span>
+            <span>Clean, documented code. Your team can extend and evolve.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 md:py-24 px-6 bg-slate-900 text-white">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold font-bebas mb-4">Ready to build the interface?</h2>
+        <p class="text-lg text-slate-300 mb-8">Let's collaborate with your design team and bring the vision to life.</p>
+        <a href="#contact" class="inline-block bg-accent text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors">
+          Start a Conversation
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <FooterBar />
+</BaseLayout>

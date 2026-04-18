@@ -1,0 +1,122 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Nav from '@/components/Nav.astro';
+import FooterBar from '@/components/ui/FooterBar.astro';
+
+const faqs = [
+  {
+    question: "What is embedded technical leadership?",
+    answer: "Embedded technical leadership means we work as an extension of your team—not as an outside vendor. We provide strategic technical guidance, architecture decisions, code standards, and hands-on development alongside your team. Ideal for agencies building AI products or founders moving fast without a full-time CTO."
+  },
+  {
+    question: "How is Roadshow Creative different from hiring a full-time engineer?",
+    answer: "We combine the strategic focus of a CTO with hands-on engineering execution. Unlike a full-time hire, you get immediate expertise, flexibility in engagement, and no overhead costs. We're aligned with your timeline and can scale up or down as needed."
+  },
+  {
+    question: "What's included in the technical leadership service?",
+    answer: "Technical leadership includes architecture design, code review, mentoring your team, setting up development processes, technology stack recommendations, and hands-on development. We ensure your product is built to scale from day one."
+  },
+  {
+    question: "How long does SaaS MVP development typically take?",
+    answer: "Most MVPs take 6-12 weeks depending on complexity. We focus on shipping the core value proposition fast, validating with users, then iterating. Speed is intentional—move fast, learn from users, refine."
+  },
+  {
+    question: "Do you work with non-technical founders?",
+    answer: "Yes. We translate technical concepts into business outcomes. We'll explain architecture, costs, timelines, and trade-offs in terms that make sense for your business, not just technical jargon."
+  },
+  {
+    question: "What tech stack do you recommend?",
+    answer: "We use modern, proven tools: Next.js for full-stack, TypeScript for safety, React for UI, PostgreSQL for databases, and Vercel for deployment. This stack is fast to build with, scales well, and has strong developer communities."
+  },
+  {
+    question: "How do you handle AI agent integration?",
+    answer: "Agentic engineering is our specialty. We design AI workflows that think, plan, and execute autonomously. From LLM integration to multi-step reasoning, we build systems that handle complex tasks reliably."
+  },
+  {
+    question: "Can you scale with our team as we grow?",
+    answer: "Absolutely. We start embedded with your core product decisions and scale to cover more surface area as you grow—frontend, backend, infrastructure, DevOps. We set up processes so your team can build independently."
+  },
+  {
+    question: "What's your typical engagement model?",
+    answer: "We work month-to-month or project-based. Most engagements start at 20-40 hours/week and adjust based on needs. We're flexible—whether you need full-time focus or strategic input a few hours a week."
+  },
+  {
+    question: "How do you approach design and engineering collaboration?",
+    answer: "Design and engineering aren't separate—they're one process. We work directly with your design team to understand the vision, then build interfaces that are both beautiful and performant. Pixel-precise, scalable, accessible."
+  },
+  {
+    question: "Do you take equity or revenue share?",
+    answer: "We work on time-based engagement. Some early-stage founders propose equity conversations separately—that's something we discuss individually. Primary model is straightforward hourly/project rates."
+  },
+  {
+    question: "How do you stay current with AI and new technologies?",
+    answer: "Continuous learning is built in. We experiment, ship side projects (see our 'Short Stacks'), and integrate what works into client projects. 15+ years means we've seen trends come and go—we focus on fundamentals + pragmatic innovation."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<BaseLayout title="FAQ — Roadshow Creative" description="Frequently asked questions about embedded technical leadership, full-stack development, and SaaS engineering at Roadshow Creative.">
+  <Nav />
+
+  <main class="min-h-screen flex flex-col">
+    <!-- FAQ Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+    <!-- Header -->
+    <section class="py-16 md:py-24 px-6 border-b border-slate-200">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold font-bebas mb-4">Frequently Asked Questions</h1>
+        <p class="text-lg text-slate-600">Everything you need to know about working with Roadshow Creative.</p>
+      </div>
+    </section>
+
+    <!-- FAQ List -->
+    <section class="flex-1 py-16 md:py-24 px-6">
+      <div class="max-w-3xl mx-auto space-y-12">
+        {faqs.map((faq, index) => (
+          <details class="group open:bg-slate-50 open:p-6 open:rounded-lg border border-slate-200 open:border-slate-300 cursor-pointer" key={index}>
+            <summary class="flex items-center justify-between font-semibold text-lg cursor-pointer select-none py-4 px-6 md:px-0">
+              <h2 class="text-slate-900 hover:text-accent transition-colors">{faq.question}</h2>
+              <span class="transition-transform group-open:rotate-180 text-accent text-xl md:text-2xl">▼</span>
+            </summary>
+            <div class="text-slate-700 leading-relaxed pt-0 pb-4 px-6 md:px-0 hidden group-open:block">
+              {faq.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 md:py-24 px-6 bg-slate-900 text-white">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold font-bebas mb-4">Still have questions?</h2>
+        <p class="text-lg text-slate-300 mb-8">Let's talk. We're happy to discuss your project and how we can help.</p>
+        <a href="#contact" class="inline-block bg-accent text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors">
+          Start a Conversation
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <FooterBar />
+</BaseLayout>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

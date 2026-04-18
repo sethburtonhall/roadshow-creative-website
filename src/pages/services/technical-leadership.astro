@@ -1,0 +1,173 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Nav from '@/components/Nav.astro';
+import FooterBar from '@/components/ui/FooterBar.astro';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Embedded Technical Leadership",
+  "description": "Strategic technical leadership and hands-on engineering for agencies and founders building SaaS and AI products.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Roadshow Creative",
+    "url": "https://roadshowcreative.dev"
+  },
+  "areaServed": ["US", "Worldwide"],
+  "serviceType": "Technical Consulting & Development"
+};
+---
+
+<BaseLayout title="Embedded Technical Leadership — Roadshow Creative" description="Strategic technical leadership and hands-on engineering for agencies and founders. Technical co-founder, CTO services, architecture design.">
+  <Nav />
+
+  <main class="min-h-screen flex flex-col">
+    <!-- Service Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 px-6 border-b border-slate-200">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold font-bebas mb-4">Embedded Technical Leadership</h1>
+        <p class="text-xl text-slate-600 mb-6">
+          Skip the hiring. Get a full-time technical lead embedded with your team—handling architecture, code standards, mentorship, and hands-on development.
+        </p>
+        <p class="text-lg text-slate-600">
+          Ideal for agencies building AI products and founders moving fast without overhead.
+        </p>
+      </div>
+    </section>
+
+    <!-- What It Is -->
+    <section class="py-16 md:py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">What It Is</h2>
+        <p class="text-lg text-slate-700 mb-6">
+          Instead of hiring a full-time CTO or lead engineer, we embed with your team as your technical co-founder. We handle:
+        </p>
+        <ul class="space-y-4 text-slate-700">
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Architecture & Design:</strong> System design, scalability planning, technology decisions</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Code Standards:</strong> Setting up processes, code review, technical excellence</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Hands-On Engineering:</strong> Building features, debugging, shipping fast</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Team Mentorship:</strong> Growing your engineering capability, knowledge transfer</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Strategic Guidance:</strong> Roadmapping, technical risk mitigation, scaling strategy</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Who It's For -->
+    <section class="py-16 md:py-20 px-6 bg-slate-50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Who It's For</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">Design Agencies Building AI Products</h3>
+            <p class="text-slate-700">You design it. We architect and build it. We handle the complexity so you stay focused on user experience and brand.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">Early-Stage Founders</h3>
+            <p class="text-slate-700">You've got vision and initial traction but need technical leadership without full-time overhead. We move fast, make smart decisions, and help you scale.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">Teams Expanding Engineering</h3>
+            <p class="text-slate-700">Your team exists but needs senior guidance. We mentor, set standards, and help you grow from startup chaos to sustainable systems.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Process -->
+    <section class="py-16 md:py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">The Process</h2>
+        <ol class="space-y-8">
+          <li class="flex gap-6">
+            <span class="text-2xl font-bold text-accent flex-shrink-0">1</span>
+            <div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Alignment Call</h3>
+              <p class="text-slate-700">We understand your vision, challenges, timeline, and team. What are your biggest technical risks?</p>
+            </div>
+          </li>
+          <li class="flex gap-6">
+            <span class="text-2xl font-bold text-accent flex-shrink-0">2</span>
+            <div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Proposal & Engagement</h3>
+              <p class="text-slate-700">We propose scope, engagement model (weekly hours), and timeline. Month-to-month or project-based—your choice.</p>
+            </div>
+          </li>
+          <li class="flex gap-6">
+            <span class="text-2xl font-bold text-accent flex-shrink-0">3</span>
+            <div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Embed & Execute</h3>
+              <p class="text-slate-700">We join standups, review code, make architecture decisions, and ship features alongside your team.</p>
+            </div>
+          </li>
+          <li class="flex gap-6">
+            <span class="text-2xl font-bold text-accent flex-shrink-0">4</span>
+            <div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Scale or Graduate</h3>
+              <p class="text-slate-700">As you grow, we either expand scope or transition you to independence. Goal is your success, however that looks.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Why Choose Roadshow -->
+    <section class="py-16 md:py-20 px-6 bg-slate-50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Why Roadshow Creative</h2>
+        <ul class="space-y-4 text-slate-700">
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">15+</span>
+            <span>Years of shipping ambitious products (SaaS, marketplaces, AI systems)</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">20+</span>
+            <span>Projects shipped. Built products that generate revenue today.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Expert</span>
+            <span>in modern full-stack: Next.js, TypeScript, React, PostgreSQL, AI integration</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Fast</span>
+            <span>Ship faster, iterate with users, make good decisions under pressure</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Aligned</span>
+            <span>We win when you win. Embedded, not external. Part of the team.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 md:py-24 px-6 bg-slate-900 text-white">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold font-bebas mb-4">Ready to embed technical leadership?</h2>
+        <p class="text-lg text-slate-300 mb-8">Let's talk about your project and how we can accelerate your team.</p>
+        <a href="#contact" class="inline-block bg-accent text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors">
+          Start a Conversation
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <FooterBar />
+</BaseLayout>

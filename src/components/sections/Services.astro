@@ -23,9 +23,19 @@ const { id = 'services' } = Astro.props;
 
   <!-- Services list -->
   <div class="relative z-1">
-    {services.map((service, index) => (
-      <div
-        class={`service-item grid max-sm:grid-cols-[3.5rem_1fr] grid-cols-[5rem_1fr_auto] gap-8 items-start py-10 border-t border-border${index === services.length - 1 ? ' border-b' : ''}`}
+    {services.map((service, index) => {
+      const serviceUrls: Record<string, string> = {
+        'tech-lead': '/services/technical-leadership',
+        'full-stack': '/services/saas-development',
+        'agentic-engineering': '/services/agentic-engineering',
+        'frontend-ui': '/services/frontend-engineering',
+        'saas-build': '/services/saas-development',
+      };
+      const href = serviceUrls[service.id] || '#';
+      return (
+      <a
+        href={href}
+        class={`service-item grid max-sm:grid-cols-[3.5rem_1fr] grid-cols-[5rem_1fr_auto] gap-8 items-start py-10 border-t border-border${index === services.length - 1 ? ' border-b' : ''} block no-underline hover:bg-surface/50 transition-colors px-0`}
         data-animate
       >
         <!-- Number -->
@@ -46,8 +56,9 @@ const { id = 'services' } = Astro.props;
         <div class="service-arrow max-sm:hidden mt-2 text-border transition-[color,transform] duration-320 shrink-0 ease-[cubic-bezier(0.4,0,0.2,1),cubic-bezier(0.19,1,0.22,1)]">
           <ArrowUpRight size={20} />
         </div>
-      </div>
-    ))}
+      </a>
+      );
+    })}
   </div>
 </section>
 

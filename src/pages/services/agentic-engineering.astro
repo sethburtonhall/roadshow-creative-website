@@ -1,0 +1,221 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Nav from '@/components/Nav.astro';
+import FooterBar from '@/components/ui/FooterBar.astro';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Agentic Engineering",
+  "description": "Design and implementation of AI agents and autonomous workflows that plan, reason, and execute complex tasks.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Roadshow Creative",
+    "url": "https://roadshowcreative.dev"
+  },
+  "areaServed": ["US", "Worldwide"],
+  "serviceType": "AI Development & Engineering"
+};
+
+const howtoSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How Agentic Engineering Works",
+  "description": "The process of designing and building AI agents that autonomously handle complex workflows.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Define the Problem",
+      "text": "Identify tasks that would benefit from autonomous execution—data processing, customer support, content creation, workflow automation."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Design the Agent Architecture",
+      "text": "Plan the agent's reasoning loop, tools available, decision points, and failure modes. What should it do? What could go wrong?"
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Build & Integrate",
+      "text": "Implement the agent with access to your APIs, databases, and tools. Connect it to your existing systems."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Test & Refine",
+      "text": "Test with real scenarios, monitor for failures, and iterate on the reasoning logic until reliable."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Deploy & Monitor",
+      "text": "Ship to production with monitoring, logging, and safeguards. Agents improve as they learn from real data."
+    }
+  ]
+};
+---
+
+<BaseLayout title="Agentic Engineering — AI Agent Development — Roadshow Creative" description="Design and build AI agents that think, plan, and execute autonomously. Autonomous workflows, multi-step reasoning, AI agent architecture.">
+  <Nav />
+
+  <main class="min-h-screen flex flex-col">
+    <!-- Service Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+    <!-- How-To Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(howtoSchema)} />
+
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 px-6 border-b border-slate-200">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold font-bebas mb-4">Agentic Engineering</h1>
+        <p class="text-xl text-slate-600 mb-6">
+          AI agents that think, plan, and execute. We build autonomous systems that handle complex workflows reliably.
+        </p>
+        <p class="text-lg text-slate-600">
+          From customer support automation to data processing pipelines, agents do the work humans used to.
+        </p>
+      </div>
+    </section>
+
+    <!-- What It Is -->
+    <section class="py-16 md:py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">What It Is</h2>
+        <p class="text-lg text-slate-700 mb-6">
+          Agentic engineering builds systems where AI agents autonomously handle multi-step workflows. Unlike simple chatbots, agents:
+        </p>
+        <ul class="space-y-4 text-slate-700">
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Reason through problems:</strong> Break down complex tasks, make decisions at each step</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Use tools reliably:</strong> Call APIs, query databases, send messages—with error handling</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Execute long workflows:</strong> Handle tasks that span minutes, hours, or days autonomously</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Learn and improve:</strong> Adapt based on outcomes, improve reasoning over time</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Provide transparency:</strong> Log reasoning, explain decisions, show work</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Real-World Applications -->
+    <section class="py-16 md:py-20 px-6 bg-slate-50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Real-World Applications</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">Customer Support Automation</h3>
+            <p class="text-slate-700">Agents handle support tickets end-to-end: understand the issue, search docs, escalate when needed, track resolution.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">Content Generation at Scale</h3>
+            <p class="text-slate-700">Agents research, outline, write, edit, and publish content. One agent orchestrates the whole workflow.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">Data Processing & Enrichment</h3>
+            <p class="text-slate-700">Agents ingest raw data, clean it, enrich it with external APIs, and load into your systems—autonomously and reliably.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">Workflow Automation</h3>
+            <p class="text-slate-700">Complex business workflows (onboarding, approvals, scheduling) that require human-like reasoning and judgment.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">Research & Analysis</h3>
+            <p class="text-slate-700">Agents gather information, synthesize findings, and produce reports or recommendations with reasoning shown.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 md:py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">How It Works</h2>
+        <ol class="space-y-8">
+          <li class="flex gap-6">
+            <span class="text-2xl font-bold text-accent flex-shrink-0">1</span>
+            <div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Define the Problem</h3>
+              <p class="text-slate-700">Identify the workflow. What's the goal? What tools does the agent need? What could go wrong?</p>
+            </div>
+          </li>
+          <li class="flex gap-6">
+            <span class="text-2xl font-bold text-accent flex-shrink-0">2</span>
+            <div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Design the Architecture</h3>
+              <p class="text-slate-700">Plan the reasoning loop, decision points, tool integration, and error handling. Diagram the workflow.</p>
+            </div>
+          </li>
+          <li class="flex gap-6">
+            <span class="text-2xl font-bold text-accent flex-shrink-0">3</span>
+            <div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Build & Integrate</h3>
+              <p class="text-slate-700">Implement the agent with access to your APIs, databases, and third-party services. Full integration into your stack.</p>
+            </div>
+          </li>
+          <li class="flex gap-6">
+            <span class="text-2xl font-bold text-accent flex-shrink-0">4</span>
+            <div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Test & Refine</h3>
+              <p class="text-slate-700">Test with real scenarios. Monitor failure modes. Iterate on prompts and logic until reliable.</p>
+            </div>
+          </li>
+          <li class="flex gap-6">
+            <span class="text-2xl font-bold text-accent flex-shrink-0">5</span>
+            <div>
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">Deploy & Monitor</h3>
+              <p class="text-slate-700">Ship to production with observability, logging, and safeguards. Monitor agent performance continuously.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Why Roadshow -->
+    <section class="py-16 md:py-20 px-6 bg-slate-50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Why Roadshow Creative for Agentic Engineering</h2>
+        <ul class="space-y-4 text-slate-700">
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Expert</span>
+            <span>in LLM integration, multi-step reasoning, tool orchestration, and production deployment</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Built</span>
+            <span>multiple AI agents in production (see Village Live for autonomous event curation)</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Pragmatic</span>
+            <span>We focus on what works in production, not hype. Reliable > flashy.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Full-Stack</span>
+            <span>We handle architecture, integration, deployment, and monitoring—not just the agent logic.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 md:py-24 px-6 bg-slate-900 text-white">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold font-bebas mb-4">Ready to build autonomous systems?</h2>
+        <p class="text-lg text-slate-300 mb-8">Let's design an agent that handles the work humans used to.</p>
+        <a href="#contact" class="inline-block bg-accent text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors">
+          Start a Conversation
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <FooterBar />
+</BaseLayout>

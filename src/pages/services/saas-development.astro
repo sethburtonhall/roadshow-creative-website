@@ -1,0 +1,175 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Nav from '@/components/Nav.astro';
+import FooterBar from '@/components/ui/FooterBar.astro';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "SaaS Development",
+  "description": "Full-stack SaaS product development from MVP to scale. We build the complete product, not just code.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Roadshow Creative",
+    "url": "https://roadshowcreative.dev"
+  },
+  "areaServed": ["US", "Worldwide"],
+  "serviceType": "SaaS Development & Product Engineering"
+};
+---
+
+<BaseLayout title="SaaS Development — MVP to Scale — Roadshow Creative" description="Full-stack SaaS development from zero to one. Build MVPs fast, validate with users, scale with confidence. Next.js, PostgreSQL, Vercel.">
+  <Nav />
+
+  <main class="min-h-screen flex flex-col">
+    <!-- Service Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 px-6 border-b border-slate-200">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold font-bebas mb-4">SaaS Development</h1>
+        <p class="text-xl text-slate-600 mb-6">
+          Full-stack product development from MVP to scale. We build the complete system—not just code.
+        </p>
+        <p class="text-lg text-slate-600">
+          Validated by users. Built to scale. Designed for your business model.
+        </p>
+      </div>
+    </section>
+
+    <!-- What We Build -->
+    <section class="py-16 md:py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">What We Build</h2>
+        <p class="text-lg text-slate-700 mb-6">
+          Complete SaaS systems, not components:
+        </p>
+        <ul class="space-y-4 text-slate-700">
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Frontend:</strong> Modern UI with Next.js, React, TypeScript—fast, accessible, beautiful</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Backend:</strong> Scalable APIs, database design, business logic, integrations</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Authentication:</strong> Secure user management, SSO, permissions, compliance</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Payments:</strong> Billing, subscriptions, usage tracking, invoicing</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Infrastructure:</strong> Deployment, CI/CD, monitoring, scaling—handled</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent text-xl">✓</span>
+            <span><strong>Data:</strong> Analytics, usage tracking, insights—baked into the product</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- The Approach -->
+    <section class="py-16 md:py-20 px-6 bg-slate-50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Our Approach</h2>
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-3">1. MVP First (6–12 weeks)</h3>
+            <p class="text-slate-700">Ship the core value proposition fast. Get users. Learn. Most startups don't fail because of tech—they fail because nobody wants it. We ship fast so you can validate.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-3">2. Built to Scale</h3>
+            <p class="text-slate-700">Even MVPs are architected for scale. Good database design, efficient code, infrastructure that grows with you. No rewrite later.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-3">3. User-Focused</h3>
+            <p class="text-slate-700">We work with your designer and understand the user. Code is beautiful when it serves the user. Pixel-perfect, performant, accessible.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-3">4. Modern Tech Stack</h3>
+            <p class="text-slate-700">Next.js for full-stack, TypeScript for safety, PostgreSQL for data, Vercel for deployment. Boring + proven + fast to build with.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-3">5. Handoff or Scale</h3>
+            <p class="text-slate-700">After MVP, you can either hire engineers to scale or we scale with you. Clear code, documented systems, team-ready architecture.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline & Investment -->
+    <section class="py-16 md:py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Timeline & Investment</h2>
+        <div class="bg-slate-50 rounded-lg p-8 border border-slate-200">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 class="text-lg font-semibold text-slate-900 mb-2">MVP</h3>
+              <p class="text-sm text-slate-600 mb-4">6–12 weeks</p>
+              <p class="text-slate-700">Core features, basic design, ship to users. Validate the idea.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-slate-900 mb-2">Post-MVP</h3>
+              <p class="text-sm text-slate-600 mb-4">12–24 weeks</p>
+              <p class="text-slate-700">User feedback integration, performance optimization, scaling features.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-slate-900 mb-2">Growth</h3>
+              <p class="text-sm text-slate-600 mb-4">Ongoing</p>
+              <p class="text-slate-700">New features, platform expansion, partnerships, infrastructure scaling.</p>
+            </div>
+          </div>
+        </div>
+        <p class="text-slate-700 mt-6">Investment varies by scope. We discuss budget + timeline to find the right fit.</p>
+      </div>
+    </section>
+
+    <!-- Why Roadshow -->
+    <section class="py-16 md:py-20 px-6 bg-slate-50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Why Roadshow Creative</h2>
+        <ul class="space-y-4 text-slate-700">
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Track Record</span>
+            <span>Built 4 SaaS products currently generating revenue (Village, Premise, others)</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Speed</span>
+            <span>We ship fast without sacrificing quality. Most MVPs 6–12 weeks.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Full-Stack</span>
+            <span>Frontend, backend, infrastructure, deployment—all covered. No context switching.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Sustainable</span>
+            <span>Built for scale from day one. No technical debt or rewrites later.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Founder-Friendly</span>
+            <span>We understand founders. Limited runway, high stakes, quick decisions. We move accordingly.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 md:py-24 px-6 bg-slate-900 text-white">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold font-bebas mb-4">Ready to build your SaaS?</h2>
+        <p class="text-lg text-slate-300 mb-8">Let's talk about your idea and get you to market fast.</p>
+        <a href="#contact" class="inline-block bg-accent text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors">
+          Start a Conversation
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <FooterBar />
+</BaseLayout>

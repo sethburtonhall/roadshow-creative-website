@@ -1,0 +1,181 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Nav from '@/components/Nav.astro';
+import FooterBar from '@/components/ui/FooterBar.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Roadshow Creative — Oceanside",
+  "description": "Full-stack development studio based in Oceanside, CA. Technical leadership, SaaS development, agentic engineering.",
+  "url": "https://roadshowcreative.dev/locations/oceanside",
+  "areaServed": {
+    "@type": "City",
+    "name": "Oceanside"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Oceanside",
+    "addressRegion": "CA",
+    "postalCode": "92054",
+    "addressCountry": "US"
+  },
+  "serviceType": ["Full-Stack Development", "Technical Leadership", "SaaS Development", "Agentic Engineering"]
+};
+---
+
+<BaseLayout title="Full-Stack Development Services in Oceanside, CA — Roadshow Creative" description="Oceanside-based full-stack development studio. Technical leadership, SaaS MVP development, agentic engineering. 15+ years experience.">
+  <Nav />
+
+  <main class="min-h-screen flex flex-col">
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 px-6 border-b border-slate-200">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold font-bebas mb-4">Full-Stack Development in Oceanside</h1>
+        <p class="text-xl text-slate-600 mb-6">
+          Based right here in Oceanside. We partner with founders, agencies, and teams who are building ambitious products.
+        </p>
+        <p class="text-lg text-slate-600">
+          Technical leadership, SaaS development, AI engineering. 15+ years building products that matter.
+        </p>
+      </div>
+    </section>
+
+    <!-- Oceanside Culture -->
+    <section class="py-16 md:py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Oceanside First</h2>
+        <p class="text-lg text-slate-700 mb-6">
+          Oceanside is a tech haven. Laid-back vibe, zero ego, serious builders. We're part of that community.
+        </p>
+        <p class="text-lg text-slate-700 mb-6">
+          You can grab coffee with us. Collaborate in person. See the product come to life. No "outsourced development team" vibes—we're here, we're committed, we care about the outcome.
+        </p>
+        <p class="text-lg text-slate-700">
+          <strong>Looking for a technical co-founder?</strong> Oceanside startup? Team needing technical leadership? We're neighbors.
+        </p>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="py-16 md:py-20 px-6 bg-slate-50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Our Story</h2>
+        <p class="text-lg text-slate-700 mb-6">
+          Seth founded Roadshow Creative in Oceanside after 15+ years building products. Started as solo dev, now working with agencies and founders on their biggest challenges.
+        </p>
+        <p class="text-lg text-slate-700 mb-6">
+          We've shipped 20+ projects. 4 live products generating revenue. Countless happy teams. Deep expertise in full-stack development, technical leadership, and AI.
+        </p>
+        <p class="text-lg text-slate-700">
+          Goal: help Oceanside and San Diego startups build products that last. Products that scale. Products that matter.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="py-16 md:py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">What We Offer</h2>
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-4">
+              <a href="/services/technical-leadership" class="text-accent hover:underline">Embedded Technical Leadership</a>
+            </h3>
+            <p class="text-slate-700">Skip the hiring. Get a CTO-level technical lead embedded with your team. We handle architecture, code standards, mentorship, and hands-on development.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-4">
+              <a href="/services/saas-development" class="text-accent hover:underline">SaaS Development</a>
+            </h3>
+            <p class="text-slate-700">Full-stack product builds from MVP to scale. We ship fast, validate with users, and build systems that grow with you.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-4">
+              <a href="/services/agentic-engineering" class="text-accent hover:underline">Agentic Engineering</a>
+            </h3>
+            <p class="text-slate-700">AI agents that autonomously handle complex workflows. From customer support to data processing, agents do the work.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-4">
+              <a href="/services/frontend-engineering" class="text-accent hover:underline">Frontend Engineering</a>
+            </h3>
+            <p class="text-slate-700">Pixel-precise interfaces with modern design systems. Partner with your design team to build scalable, performant UIs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Oceanside -->
+    <section class="py-16 md:py-20 px-6 bg-slate-50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Oceanside Advantage</h2>
+        <ul class="space-y-4 text-slate-700">
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Local</span>
+            <span>In-person collaboration, coffee chats, understanding your market intimately</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Accessible</span>
+            <span>Easy to reach. Responsive. Part of the Oceanside startup ecosystem.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Reliable</span>
+            <span>15+ years shipping products. Experienced with startup chaos and growth.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Invested</span>
+            <span>We live here. We care about Oceanside and San Diego's success.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Connected</span>
+            <span>Network across Oceanside, San Diego, and beyond. Help with introductions, advice, partnerships.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Recent Work -->
+    <section class="py-16 md:py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Recent Work</h2>
+        <p class="text-lg text-slate-700 mb-6">
+          We've built products for teams across San Diego and beyond:
+        </p>
+        <ul class="space-y-3 text-slate-700">
+          <li class="flex gap-3">
+            <span class="text-accent">✓</span>
+            <span><strong>Village:</strong> Event discovery platform (live events, venues, live streaming)</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-accent">✓</span>
+            <span><strong>Premise:</strong> SaaS platform for agencies</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-accent">✓</span>
+            <span><strong>Multiple client projects:</strong> MVP development, platform scaling, team augmentation</span>
+          </li>
+        </ul>
+        <p class="text-sm text-slate-600 mt-6">
+          See more on our <a href="/" class="text-accent hover:underline">home page</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 md:py-24 px-6 bg-slate-900 text-white">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold font-bebas mb-4">Ready to build?</h2>
+        <p class="text-lg text-slate-300 mb-8">Let's grab coffee and talk about your project. Local, personal, real.</p>
+        <a href="#contact" class="inline-block bg-accent text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors">
+          Get in Touch
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <FooterBar />
+</BaseLayout>

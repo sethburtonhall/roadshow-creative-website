@@ -1,0 +1,252 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Nav from '@/components/Nav.astro';
+import FooterBar from '@/components/ui/FooterBar.astro';
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Hire an Embedded Technical Co-Founder: A Founder's Guide",
+  "description": "Finding the right technical co-founder is critical. Here's what founders should look for, questions to ask, and red flags to avoid.",
+  "image": "https://roadshowcreative.dev/og-image.jpg",
+  "author": {
+    "@type": "Person",
+    "name": "Seth Hall",
+    "url": "https://roadshowcreative.dev"
+  },
+  "datePublished": new Date().toISOString().split('T')[0],
+  "dateModified": new Date().toISOString().split('T')[0],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Roadshow Creative",
+    "url": "https://roadshowcreative.dev"
+  }
+};
+---
+
+<BaseLayout
+  title="How to Hire an Embedded Technical Co-Founder — Roadshow Creative"
+  description="Finding the right technical co-founder is hard. Here's what to look for, questions to ask, and how to evaluate candidates.">
+  <Nav />
+
+  <main class="min-h-screen flex flex-col">
+    <!-- Article Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+    <!-- Header -->
+    <article class="flex-1">
+      <section class="py-16 md:py-24 px-6 border-b border-slate-200">
+        <div class="max-w-2xl mx-auto">
+          <h1 class="text-4xl md:text-5xl font-bold font-bebas mb-4">
+            How to Hire an Embedded Technical Co-Founder
+          </h1>
+          <p class="text-xl text-slate-600 mb-6">
+            Finding the right technical co-founder is one of the most important decisions you'll make. Here's what to look for, questions to ask, and how to evaluate candidates.
+          </p>
+          <div class="flex gap-6 text-sm text-slate-600">
+            <span>By Seth Hall</span>
+            <span>•</span>
+            <span>{new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            <span>•</span>
+            <span>8 min read</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content -->
+      <section class="py-12 md:py-16 px-6">
+        <div class="max-w-2xl mx-auto prose prose-slate prose-invert max-w-none">
+          <h2>Why This Matters</h2>
+          <p>
+            The founding team makes or breaks a startup. If you're a non-technical founder with a great idea and market insight, your technical co-founder is critical. They handle the engineering, set the technical direction, and often become your de facto CTO.
+          </p>
+          <p>
+            Get this wrong and you'll face:
+          </p>
+          <ul>
+            <li>Slow product development (missed market windows)</li>
+            <li>Technical debt that becomes impossible to manage</li>
+            <li>Team dysfunction (founders disagreeing on tech decisions)</li>
+            <li>Inability to hire engineers (if the initial architecture is weak)</li>
+            <li>Burnout (one person handling all technical decisions)</li>
+          </ul>
+
+          <h2>What to Look For</h2>
+          <h3>1. Experience Building Products (Not Just Code)</h3>
+          <p>
+            You need someone who has shipped products, not just written code. Look for:
+          </p>
+          <ul>
+            <li><strong>Shipped projects:</strong> Have they built something from zero to users?</li>
+            <li><strong>Business sense:</strong> Do they understand unit economics, burn rate, user retention?</li>
+            <li><strong>Pragmatism:</strong> Do they make good trade-offs? Or do they over-engineer?</li>
+          </ul>
+
+          <h3>2. Deep Technical Expertise in Your Domain</h3>
+          <p>
+            They don't need to know everything, but they should have strong expertise in areas relevant to your product:
+          </p>
+          <ul>
+            <li><strong>Full-stack:</strong> Can they go from UI to database without context switching?</li>
+            <li><strong>Scalability:</strong> Have they built systems that grow from 100 to 1M users?</li>
+            <li><strong>Your specific tech stack:</strong> If you need AI/ML, do they have deep experience?</li>
+          </ul>
+
+          <h3>3. Good Judgment & Decision-Making</h3>
+          <p>
+            The best technical co-founders make good decisions quickly, even with incomplete information. Ask about trade-offs they've made:
+          </p>
+          <ul>
+            <li>"Tell me about a time you chose speed over perfection."</li>
+            <li>"How would you decide between building vs. buying a tool?"</li>
+            <li>"Walk me through a tech decision you regretted."</li>
+          </ul>
+
+          <h3>4. Communication & Mentorship</h3>
+          <p>
+            They'll hire engineers and mentor them. Can they:
+          </p>
+          <ul>
+            <li>Explain complex technical decisions to non-technical people?</li>
+            <li>Mentor junior engineers?</li>
+            <li>Disagree respectfully with you about technical direction?</li>
+          </ul>
+
+          <h3>5. Alignment on the Vision</h3>
+          <p>
+            This is fundamental. Do they believe in the problem you're solving? Do they want to build this specific product, or are they just looking for another startup gig?
+          </p>
+
+          <h2>Red Flags to Watch For</h2>
+          <ul>
+            <li><strong>Never shipped anything:</strong> They've been at big companies writing code, never actually built a product.</li>
+            <li><strong>Over-engineering:</strong> They want to rewrite everything. They talk about tech debt as a blocker to shipping.</li>
+            <li><strong>Weak communication:</strong> You can't understand them. They don't explain trade-offs well.</li>
+            <li><strong>Misalignment on speed:</strong> You want MVP in 8 weeks. They want 12 months of architecture planning.</li>
+            <li><strong>No business sense:</strong> They don't understand unit economics or can't make decisions without perfect information.</li>
+            <li><strong>Bad references:</strong> Check with people they've worked with. Culture fit matters.</li>
+            <li><strong>Solo operator mentality:</strong> They want to do all the coding themselves, can't delegate.</li>
+          </ul>
+
+          <h2>Questions to Ask</h2>
+          <p>During the interview, ask:</p>
+          <ul>
+            <li>"Walk me through a product you've built from zero to first users."</li>
+            <li>"What's the biggest technical decision you've regretted? What would you do differently?"</li>
+            <li>"How would you approach scaling our product from 100 to 100k users?"</li>
+            <li>"What's your timeline expectation for MVP? How would you decide what to cut?"</li>
+            <li>"Tell me about a time you disagreed with a non-technical founder or manager. How did you handle it?"</li>
+            <li>"What's your experience hiring and mentoring engineers?"</li>
+            <li>"Why are you interested in this specifically?"</li>
+          </ul>
+
+          <h2>Equity & Compensation</h2>
+          <p>
+            Technical co-founders should get equity. The standard range is 10-25% depending on their contribution level. If you're fully funded and they're joining later, it might be lower.
+          </p>
+          <p>
+            Agree upfront on:
+          </p>
+          <ul>
+            <li>Equity percentage and vesting schedule</li>
+            <li>Salary (if any)</li>
+            <li>Decision-making authority (CTO role = major tech decisions)</li>
+          </ul>
+
+          <h2>Alternative: Embedded Technical Lead</h2>
+          <p>
+            If you can't find the perfect co-founder right now, consider an embedded technical lead (fractional CTO). Someone who:
+          </p>
+          <ul>
+            <li>Works 20-40 hours/week as your embedded tech partner</li>
+            <li>Handles architecture, hiring, mentorship</li>
+            <li>Gives you 3-6 months to test product-market fit before fulltime hire</li>
+          </ul>
+          <p>
+            This buys you time and reduces risk. You're not locked into a full-time hire. You validate the idea first.
+          </p>
+
+          <h2>The Decision</h2>
+          <p>
+            Hiring a technical co-founder is choosing someone you'll work with closely for years. Trust your gut. If you feel like you're compromising on core values or judgment, keep looking.
+          </p>
+          <p>
+            The best technical co-founders are pragmatic, ship fast, communicate well, and genuinely believe in your vision. Find someone who checks those boxes and you'll have a strong foundation.
+          </p>
+
+          <h2>Ready to Find Your Technical Co-Founder?</h2>
+          <p>
+            If you want to talk through your specific needs—hire a full-time co-founder, find an embedded technical lead, or explore other options—we're here to help.
+          </p>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="py-12 md:py-16 px-6 bg-slate-50">
+        <div class="max-w-2xl mx-auto text-center">
+          <h3 class="text-2xl font-bold font-bebas mb-4">Need Technical Leadership?</h3>
+          <p class="text-lg text-slate-700 mb-6">
+            Whether you're looking to hire a full-time co-founder or need an embedded technical lead, let's talk about your options.
+          </p>
+          <a href="/services/technical-leadership" class="inline-block bg-accent text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors mb-4">
+            Learn About Technical Leadership
+          </a>
+          <p class="text-sm text-slate-600">Or reach out directly to discuss your specific situation.</p>
+        </div>
+      </section>
+
+      <!-- Related Articles -->
+      <section class="py-12 md:py-16 px-6">
+        <div class="max-w-2xl mx-auto">
+          <h3 class="text-2xl font-bold font-bebas mb-8">Related Articles</h3>
+          <div class="space-y-6">
+            <article class="border-l-4 border-accent pl-6">
+              <h4 class="text-lg font-semibold text-slate-900 mb-2">
+                <a href="/services/technical-leadership" class="text-accent hover:underline">What is Embedded Technical Leadership?</a>
+              </h4>
+              <p class="text-slate-700">Understanding what embedded technical leadership means and when to use it instead of hiring full-time.</p>
+            </article>
+            <article class="border-l-4 border-accent pl-6">
+              <h4 class="text-lg font-semibold text-slate-900 mb-2">
+                <a href="/services/saas-development" class="text-accent hover:underline">SaaS MVP Development: Zero to Market</a>
+              </h4>
+              <p class="text-slate-700">How to build and launch your SaaS MVP quickly without compromising on architecture.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <FooterBar />
+</BaseLayout>
+
+<style is:global>
+  .prose {
+    color: inherit;
+  }
+
+  .prose h2 {
+    @apply text-2xl font-bold font-bebas mt-8 mb-4 text-slate-900;
+  }
+
+  .prose h3 {
+    @apply text-xl font-semibold mt-6 mb-3 text-slate-900;
+  }
+
+  .prose p {
+    @apply text-lg text-slate-700 mb-4 leading-relaxed;
+  }
+
+  .prose ul {
+    @apply list-disc list-inside space-y-2 text-slate-700 mb-4;
+  }
+
+  .prose li {
+    @apply text-slate-700;
+  }
+
+  .prose strong {
+    @apply font-semibold text-slate-900;
+  }
+</style>

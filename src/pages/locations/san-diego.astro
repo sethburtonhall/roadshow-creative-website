@@ -1,0 +1,155 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Nav from '@/components/Nav.astro';
+import FooterBar from '@/components/ui/FooterBar.astro';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Roadshow Creative — San Diego",
+  "description": "Full-stack development studio serving San Diego area. Technical leadership, SaaS development, agentic engineering.",
+  "url": "https://roadshowcreative.dev/locations/san-diego",
+  "areaServed": {
+    "@type": "City",
+    "name": "San Diego"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Oceanside",
+    "addressRegion": "CA",
+    "postalCode": "92054",
+    "addressCountry": "US"
+  },
+  "serviceType": ["Full-Stack Development", "Technical Leadership", "SaaS Development", "Agentic Engineering"]
+};
+---
+
+<BaseLayout title="Full-Stack Development in San Diego — Roadshow Creative" description="Technical leadership and full-stack development services in San Diego, Oceanside, and surrounding areas. Local expertise, nationwide availability.">
+  <Nav />
+
+  <main class="min-h-screen flex flex-col">
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 px-6 border-b border-slate-200">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold font-bebas mb-4">Full-Stack Development in San Diego</h1>
+        <p class="text-xl text-slate-600 mb-6">
+          We're based in Oceanside, serving the San Diego tech ecosystem. Embedded technical leadership, SaaS development, AI engineering.
+        </p>
+        <p class="text-lg text-slate-600">
+          Local presence, nationwide expertise. Let's build something ambitious.
+        </p>
+      </div>
+    </section>
+
+    <!-- About the Market -->
+    <section class="py-16 md:py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">San Diego's Tech Landscape</h2>
+        <p class="text-lg text-slate-700 mb-6">
+          San Diego has a vibrant startup and design scene. Biotech, fintech, digital product agencies—all building ambitious products. But good engineering talent is scarce.
+        </p>
+        <p class="text-lg text-slate-700 mb-6">
+          Roadshow Creative is embedded right here in Oceanside. We understand the local market, work with local agencies and founders, and have deep relationships in the community.
+        </p>
+        <p class="text-lg text-slate-700">
+          <strong>Need a technical co-founder?</strong> Designer agency building AI? Startup with 3 engineers struggling to scale? We're a 15-minute call away.
+        </p>
+      </div>
+    </section>
+
+    <!-- Who We Work With -->
+    <section class="py-16 md:py-20 px-6 bg-slate-50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Who We Work With Locally</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">San Diego Design & Product Agencies</h3>
+            <p class="text-slate-700">Building AI-powered products for clients? We're your technical partners. Frontend to backend, we handle the engineering so you focus on design and strategy.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">Oceanside & North County Startups</h3>
+            <p class="text-slate-700">Early-stage founders in Oceanside, Carlsbad, Vista? Embedded CTO/technical lead. Help navigate tech decisions, hire engineers, scale your platform.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">San Diego Biotech & Fintech</h3>
+            <p class="text-slate-700">Complex domain + technical challenge? We specialize in regulation-compliant, scalable systems for regulated industries.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">Growing Engineering Teams</h3>
+            <p class="text-slate-700">Scaling from 3 to 5 engineers? We mentor, set standards, help hire the right people. Technical leadership to grow your team capability.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Local Advantage -->
+    <section class="py-16 md:py-20 px-6">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Local Advantage</h2>
+        <ul class="space-y-4 text-slate-700">
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Present</span>
+            <span>In-person meetings, coffee chats, understanding local context and relationships</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Connected</span>
+            <span>Deep relationships with local design, product, and startup communities</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Timezone</span>
+            <span>Same timezone. Real-time collaboration. Standups without scheduling gymnastics.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Invested</span>
+            <span>We care about San Diego's tech ecosystem. We're long-term players here.</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent font-bold">Experienced</span>
+            <span>15+ years building in this market. We've seen trends, understand what works.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="py-16 md:py-20 px-6 bg-slate-50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold font-bebas mb-8">Services We Offer Locally</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <a href="/services/technical-leadership" class="p-6 bg-white rounded-lg border border-slate-200 hover:border-accent transition-colors">
+            <h3 class="text-lg font-semibold text-slate-900 mb-3">Embedded Technical Leadership</h3>
+            <p class="text-slate-700">CTO-level guidance, architecture, mentorship. Month-to-month or project-based.</p>
+          </a>
+          <a href="/services/saas-development" class="p-6 bg-white rounded-lg border border-slate-200 hover:border-accent transition-colors">
+            <h3 class="text-lg font-semibold text-slate-900 mb-3">SaaS Development</h3>
+            <p class="text-slate-700">Full-stack product builds. MVP to scale. Founded companies love us.</p>
+          </a>
+          <a href="/services/agentic-engineering" class="p-6 bg-white rounded-lg border border-slate-200 hover:border-accent transition-colors">
+            <h3 class="text-lg font-semibold text-slate-900 mb-3">Agentic Engineering</h3>
+            <p class="text-slate-700">AI agents that think and execute. Autonomous workflows for your business.</p>
+          </a>
+          <a href="/services/frontend-engineering" class="p-6 bg-white rounded-lg border border-slate-200 hover:border-accent transition-colors">
+            <h3 class="text-lg font-semibold text-slate-900 mb-3">Frontend Engineering</h3>
+            <p class="text-slate-700">Pixel-perfect UI. Design systems. Partner with your design team.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 md:py-24 px-6 bg-slate-900 text-white">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold font-bebas mb-4">Let's build something ambitious</h2>
+        <p class="text-lg text-slate-300 mb-8">Based in Oceanside, serving San Diego. Tech questions? Let's talk.</p>
+        <a href="#contact" class="inline-block bg-accent text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors">
+          Start a Conversation
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <FooterBar />
+</BaseLayout>
