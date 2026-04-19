@@ -1,5 +1,5 @@
 {
-  "name": "astronautical-asteroid",
+  "name": "roadshow-creative",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -14,7 +14,7 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.7.1",
     "@astrojs/vercel": "^10.0.2",
-    "@lucide/astro": "1.0.0-rc.0",
+    "@lucide/astro": "^1.8.0",
     "@tailwindcss/vite": "^4.2.2",
     "@vercel/analytics": "^2.0.1",
     "astro": "^6.0.7",
