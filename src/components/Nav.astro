@@ -1,5 +1,10 @@
 ---
 import { Compass, Menu, X } from "@lucide/astro";
+
+// Helper function to create conditional URLs
+const createNavLink = (anchor: string) => {
+  return Astro.url.pathname === '/faq' ? `/${anchor}` : anchor;
+};
 ---
 
 <nav
@@ -21,7 +26,7 @@ import { Compass, Menu, X } from "@lucide/astro";
   <!-- Desktop links -->
   <div class="nav-links hidden sm:flex items-center gap-10">
     <a
-      href="#services"
+      href={createNavLink('#services')}
       data-nav-link="services"
       class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text relative"
     >
@@ -29,7 +34,7 @@ import { Compass, Menu, X } from "@lucide/astro";
       <span class="nav-indicator absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-accent opacity-0 transition-opacity duration-320"></span>
     </a>
     <a
-      href="#work"
+      href={createNavLink('#work')}
       data-nav-link="work"
       class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text relative"
     >
@@ -37,19 +42,29 @@ import { Compass, Menu, X } from "@lucide/astro";
       <span class="nav-indicator absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-accent opacity-0 transition-opacity duration-320"></span>
     </a>
     <a
-      href="#about"
+      href="#testimonials"
+      data-nav-link="testimonials"
+      class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text relative"
+    >
+      Testimonials
+      <span class="nav-indicator absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-accent opacity-0 transition-opacity duration-320"></span>
+    </a>
+    <a
+      href={createNavLink('#about')}
       data-nav-link="about"
       class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text relative"
     >
       About
       <span class="nav-indicator absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-accent opacity-0 transition-opacity duration-320"></span>
     </a>
-    <!-- <a
+    <a
       href="/faq"
-      class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text"
+      data-nav-link="faq"
+      class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text relative"
     >
       FAQ
-    </a> -->
+      <span class="nav-indicator absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-accent opacity-0 transition-opacity duration-320"></span>
+    </a>
   </div>
 
   <!-- Mobile menu button (replaces CTA on mobile) -->
@@ -64,7 +79,7 @@ import { Compass, Menu, X } from "@lucide/astro";
   </button>
 
   <!-- CTA (desktop only) -->
-  <a href="#contact" class="btn-primary py-2 px-5 text-[0.8125rem] !hidden sm:!inline-flex" aria-label="Contact CTA">
+  <a href={createNavLink('#contact')} class="btn-primary py-2 px-5 text-[0.8125rem] !hidden sm:!inline-flex" aria-label="Contact CTA">
     Let's Talk
   </a>
 </nav>
@@ -74,12 +89,12 @@ import { Compass, Menu, X } from "@lucide/astro";
   id="mobile-menu"
   class="fixed top-16 left-0 right-0 bottom-0 bg-base hidden flex flex-col gap-6 px-8 py-8 overflow-y-auto z-99"
 >
-  <a href="#services" class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">Services</a>
-  <a href="#work" class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">Work</a>
-  <a href="#about" class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">About</a>
-  <a href="#testimonials" class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">Testimonials</a>
+  <a href={createNavLink('#services')} class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">Services</a>
+  <a href={createNavLink('#work')} class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">Work</a>
+  <a href={createNavLink('#testimonials')} class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">Testimonials</a>
+  <a href={createNavLink('#about')} class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">About</a>
   <a href="/faq" class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">FAQ</a>
-  <a href="#contact" class="btn-primary py-3 px-6 text-center w-full">Let's Talk</a>
+  <a href={createNavLink('#contact')} class="btn-primary py-3 px-6 text-center w-full">Let's Talk</a>
 </div>
 
 <script>
@@ -127,7 +142,6 @@ import { Compass, Menu, X } from "@lucide/astro";
     }
 
     // Update active section indicator
-    const sections = ['services', 'work', 'about'];
     const navLinks = document.querySelectorAll('[data-nav-link]');
 
     // Clear all indicators first
@@ -137,6 +151,19 @@ import { Compass, Menu, X } from "@lucide/astro";
       indicator?.classList.add('opacity-0');
     });
 
+    // Check if we're on the FAQ page (ignore hash fragments)
+    const currentPath = window.location.pathname;
+    if (currentPath === '/faq') {
+      const faqLink = document.querySelector('[data-nav-link="faq"]');
+      const faqIndicator = faqLink?.querySelector('.nav-indicator');
+      faqIndicator?.classList.add('opacity-100');
+      faqIndicator?.classList.remove('opacity-0');
+      return;
+    }
+
+    // Only run scroll-based section detection on main page
+    const sections = ['services', 'work', 'testimonials', 'about'];
+    
     // Find the section that's most in view
     let bestSection = null;
     let bestScore = Infinity;
