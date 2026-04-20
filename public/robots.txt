@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /work/village
 
-Sitemap: https://roadshowcreative.dev/sitemap.xml
+Sitemap: https://roadshowcreative.dev/sitemap-index.xml
