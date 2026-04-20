@@ -33,7 +33,7 @@ const locationSections = [
     <span class="font-display text-xl tracking-[0.06em] text-text">Roadshow Creative</span>
   </a>
   <!-- Location indicator -->
-    <div class="hidden xl:flex items-center gap-2 px-3 py-1 bg-surface-2 border border-border rounded-sm">
+    <div data-animate="slide-right" class="hidden xl:flex items-center gap-2 px-3 py-1 bg-surface-2 border border-border rounded-sm">
       <span class="font-mono text-label tracking-[0.08em] uppercase text-text-muted">{locationName}</span>
     </div>
   </div>
@@ -193,3 +193,4 @@ const locationSections = [
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll(); // Call on load
 </script>
+
