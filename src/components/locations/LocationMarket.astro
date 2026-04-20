@@ -1,0 +1,82 @@
+---
+interface Props {
+  numeral: string;
+  marketName: string;
+  landscapeTitle: string;
+  description: string;
+  localContext: string;
+  callToAction: string;
+  stats?: {
+    years?: string;
+    projects?: string;
+    products?: string;
+  };
+}
+
+const {
+  numeral,
+  marketName,
+  landscapeTitle,
+  description,
+  localContext,
+  callToAction,
+  stats = {
+    years: "15+",
+    projects: "20+",
+    products: "4"
+  }
+} = Astro.props;
+---
+
+<section class="py-section-lg px-8 bg-surface border-t border-border border-b relative overflow-hidden">
+  <!-- Background numeral -->
+  <div
+    aria-hidden="true"
+    class="absolute -right-8 top-8 font-display text-[clamp(10rem,24vw,20rem)] leading-none text-transparent pointer-events-none select-none z-0"
+    style="-webkit-text-stroke: 1px var(--color-border-subtle);"
+  >
+    {numeral}
+  </div>
+
+  <div class="max-w-[1200px] mx-auto relative z-1">
+    <div class="grid grid-cols-2 md:grid-cols-2 max-md:grid-cols-1 gap-20 max-md:gap-10 items-start">
+      <!-- Left: Heading -->
+      <div data-animate>
+        <div class="section-label mb-6">Market</div>
+        <h2 class="text-headline text-text mb-0">
+          {marketName}'S<br />
+          <span style="-webkit-text-stroke: 1px rgba(242, 240, 235, 0.3);" class="text-transparent">{landscapeTitle}</span>
+        </h2>
+      </div>
+
+      <!-- Right: Content -->
+      <div data-animate class="pt-2 space-y-6">
+        <p class="text-lead leading-[1.7] text-text-muted">
+          {description}
+        </p>
+        <p class="text-[0.9375rem] leading-[1.75] text-text-dim">
+          {localContext}
+        </p>
+        <p class="text-[0.9375rem] leading-[1.75] text-text-dim">
+          <strong class="text-text">{callToAction}</strong>
+        </p>
+
+        <!-- Stats row -->
+        <div class="grid grid-cols-3 gap-6 border-t border-border pt-8 mt-10">
+          <div>
+            <div class="font-display text-[2.5rem] leading-none text-accent mb-1.5">{stats.years}</div>
+            <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">Years Building</div>
+          </div>
+          <div>
+            <div class="font-display text-[2.5rem] leading-none text-accent mb-1.5">{stats.projects}</div>
+            <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">Projects Shipped</div>
+          </div>
+          <div>
+            <div class="font-display text-[2.5rem] leading-none text-accent mb-1.5">{stats.products}</div>
+            <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">Products Live</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

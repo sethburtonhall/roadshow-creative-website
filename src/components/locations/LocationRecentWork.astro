@@ -1,0 +1,68 @@
+---
+interface RecentWork {
+  title: string;
+  description: string;
+  link: string;
+  external?: boolean;
+  tags?: string[];
+}
+
+interface Props {
+  recentWork: RecentWork[];
+  numeral: string;
+  title?: string;
+  label?: string;
+  sectionId?: string;
+}
+
+const { recentWork, numeral, title = "RECENT WORK", label = "Case Studies", sectionId } = Astro.props;
+
+import { ArrowRight } from '@lucide/astro';
+---
+
+<section id={sectionId} class="py-section-lg px-8 relative overflow-hidden">
+  <!-- Background numeral -->
+  <div
+    aria-hidden="true"
+    class="absolute -right-8 top-8 font-display text-[clamp(10rem,24vw,20rem)] leading-none text-transparent pointer-events-none select-none z-0"
+    style="-webkit-text-stroke: 1px var(--color-border-subtle);"
+  >
+    {numeral}
+  </div>
+
+  <div class="max-w-[1200px] mx-auto relative z-1">
+    <div data-animate class="mb-16">
+      <div class="section-label mb-4">{label}</div>
+      <h2 class="text-headline text-text m-0">{title}</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {recentWork.map((work) => (
+        <a
+          href={work.link}
+          target={work.external ? "_blank" : undefined}
+          rel={work.external ? "noopener noreferrer" : undefined}
+          data-animate
+          class="p-6 bg-base border border-border rounded-sm hover:border-accent hover:bg-surface-2 transition-colors duration-320 group focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 block no-underline"
+        >
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="text-title font-bold font-display text-text mb-0 group-hover:text-accent transition-colors">
+              {work.title}
+            </h3>
+            <ArrowRight size={16} class="text-text-muted group-hover:text-accent transition-colors shrink-0" />
+          </div>
+          <p class="text-text-muted leading-[1.6] mb-4">{work.description}</p>
+          {work.tags && work.tags.length > 0 && (
+            <div class="flex flex-wrap gap-1.5">
+              {work.tags.map((tag) => (
+                <span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase text-text-dim border border-border rounded-sm px-2 py-[0.2rem] bg-surface">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

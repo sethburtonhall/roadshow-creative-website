@@ -1,16 +1,26 @@
 ---
 import { Compass, Menu, X } from "@lucide/astro";
 
-// Helper function to create conditional URLs
-const createNavLink = (anchor: string) => {
-  return Astro.url.pathname === '/' ? anchor : `/${anchor}`;
-};
----
+interface Props {
+  locationName: string;
+}
 
+const { locationName } = Astro.props;
+
+// Location-specific sections based on the page structure
+const locationSections = [
+  { id: 'clients', label: 'Clients' },
+  { id: 'services', label: 'Services' },
+  { id: 'advantages', label: 'Why Local' },
+  { id: 'recent-work', label: 'Recent Work' },
+  { id: 'our-story', label: 'Our Story' },
+];
+---
 <nav
   id="nav"
   class="fixed top-0 left-0 right-0 z-100 px-8 h-16 flex items-center justify-between bg-transparent border-b border-transparent transition-[background,border-color,backdrop-filter] duration-320 ease-[cubic-bezier(0.4,0,0.2,1)]"
 >
+<div class="flex items-center gap-4">
   <!-- Logo -->
   <a
     href="/"
@@ -22,41 +32,25 @@ const createNavLink = (anchor: string) => {
     </div>
     <span class="font-display text-xl tracking-[0.06em] text-text">Roadshow Creative</span>
   </a>
+  <!-- Location indicator -->
+    <div class="hidden xl:flex items-center gap-2 px-3 py-1 bg-surface-2 border border-border rounded-sm">
+      <span class="font-mono text-label tracking-[0.08em] uppercase text-text-muted">{locationName}</span>
+    </div>
+  </div>
+
 
   <!-- Desktop links -->
   <div class="nav-links hidden lg:flex items-center gap-10">
-    <a
-      href={createNavLink('#services')}
-      data-nav-link="services"
-      class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text relative"
-    >
-      Services
-      <span class="nav-indicator absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-accent opacity-0 transition-opacity duration-320"></span>
-    </a>
-    <a
-      href={createNavLink('#work')}
-      data-nav-link="work"
-      class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text relative"
-    >
-      Work
-      <span class="nav-indicator absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-accent opacity-0 transition-opacity duration-320"></span>
-    </a>
-    <a
-      href="#testimonials"
-      data-nav-link="testimonials"
-      class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text relative"
-    >
-      Testimonials
-      <span class="nav-indicator absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-accent opacity-0 transition-opacity duration-320"></span>
-    </a>
-    <a
-      href={createNavLink('#about')}
-      data-nav-link="about"
-      class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text relative"
-    >
-      About
-      <span class="nav-indicator absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-accent opacity-0 transition-opacity duration-320"></span>
-    </a>
+    {locationSections.map((section) => (
+      <a
+        href={`#${section.id}`}
+        data-nav-link={section.id}
+        class="nav-link font-body text-sm font-medium text-text-muted no-underline tracking-[0.01em] transition-colors duration-320 ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-text relative"
+      >
+        {section.label}
+        <span class="nav-indicator absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-accent opacity-0 transition-opacity duration-320"></span>
+      </a>
+    ))}
     <a
       href="/faq"
       data-nav-link="faq"
@@ -79,7 +73,7 @@ const createNavLink = (anchor: string) => {
   </button>
 
   <!-- CTA (desktop only) -->
-  <a href={createNavLink('#contact')} class="btn-primary py-2 px-5 text-[0.8125rem] !hidden lg:!inline-flex" aria-label="Contact CTA">
+  <a href="/#contact" class="btn-primary py-2 px-5 text-[0.8125rem] !hidden lg:!inline-flex" aria-label="Contact CTA">
     Let's Talk
   </a>
 </nav>
@@ -89,12 +83,11 @@ const createNavLink = (anchor: string) => {
   id="mobile-menu"
   class="fixed top-16 left-0 right-0 bottom-0 bg-base hidden flex flex-col gap-6 px-8 py-8 overflow-y-auto z-99"
 >
-  <a href={createNavLink('#services')} class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">Services</a>
-  <a href={createNavLink('#work')} class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">Work</a>
-  <a href={createNavLink('#testimonials')} class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">Testimonials</a>
-  <a href={createNavLink('#about')} class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">About</a>
+  {locationSections.map((section) => (
+    <a href={`#${section.id}`} class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">{section.label}</a>
+  ))}
   <a href="/faq" class="w-full font-body text-base font-medium text-text no-underline hover:text-accent transition-colors duration-200">FAQ</a>
-  <a href={createNavLink('#contact')} class="btn-primary py-3 px-6 text-center w-full">Let's Talk</a>
+  <a href="/#contact" class="btn-primary py-3 px-6 text-center w-full">Let's Talk</a>
 </div>
 
 <script>
@@ -124,7 +117,7 @@ const createNavLink = (anchor: string) => {
   mobileMenu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu?.classList.add('hidden');
-      mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
       mobileMenuOpen?.classList.remove('hidden');
       mobileMenuClose?.classList.add('hidden');
     });
@@ -161,8 +154,8 @@ const createNavLink = (anchor: string) => {
       return;
     }
 
-    // Only run scroll-based section detection on main page
-    const sections = ['services', 'work', 'testimonials', 'about'];
+    // Location-specific sections
+    const sections = ['clients', 'services', 'advantages', 'recent-work', 'our-story'];
     
     // Find the section that's most in view
     let bestSection = null;

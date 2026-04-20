@@ -1,8 +1,10 @@
 ---
 interface Props {
   id?: string;
+  numeral?: string;
+  variant?: 'full' | 'story';
 }
-const { id = 'about' } = Astro.props;
+const { id = 'about', numeral = '02', variant = 'full' } = Astro.props;
 
 const expertise = [
   // Frontend
@@ -24,6 +26,7 @@ const expertise = [
   // Skills
   'Product Architecture', 'SaaS',
 ];
+
 ---
 
 <section
@@ -31,59 +34,80 @@ const expertise = [
   class="py-section-lg px-8 bg-surface border-t border-border border-b relative overflow-hidden"
 >
   <!-- Decorative large text background -->
-  <div aria-hidden="true" class="absolute -right-8 -bottom-12 font-display text-[clamp(10rem,24vw,20rem)] leading-none text-transparent pointer-events-none select-none tracking-[-0.02em] z-0" style="-webkit-text-stroke: 1px var(--color-border-subtle);">02</div>
+  <div aria-hidden="true" class="absolute -right-8 -bottom-12 font-display text-[clamp(10rem,24vw,20rem)] leading-none text-transparent pointer-events-none select-none tracking-[-0.02em] z-0" style="-webkit-text-stroke: 1px var(--color-border-subtle);">{numeral}</div>
 
-  <div class="about-grid max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-2 max-md:grid-cols-1 gap-20 max-md:gap-10 items-start relative z-1">
+  {variant === 'full' ? (
+    <!-- Full variant: detailed bio with expertise -->
+    <div class="about-grid max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-2 max-md:grid-cols-1 gap-20 max-md:gap-10 items-start relative z-1">
+      <!-- Left: headline -->
+      <div data-animate>
+        <div class="section-label mb-6">About</div>
+        <h2 class="text-headline text-text mb-8">
+          ABOUT<br />
+          <span style="-webkit-text-stroke: 1px rgba(242, 240, 235, 0.3);" class="text-transparent">SETH</span>
+        </h2>
 
-    <!-- Left: headline -->
-    <div data-animate>
-      <div class="section-label mb-6">About</div>
-      <h2 class="text-headline text-text mb-8">
-        ABOUT<br />
-        <span style="-webkit-text-stroke: 1px rgba(242, 240, 235, 0.3);" class="text-transparent">SETH</span>
-      </h2>
-
-      <!-- Expertise tags -->
-      <div class="mt-10">
-        <div class="section-label text-text-dim mb-4">
-          Stack
+        <!-- Expertise tags -->
+        <div class="mt-10">
+          <div class="section-label text-text-dim mb-4">
+            Stack
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {expertise.map((item) => (
+              <span class="font-mono text-label tracking-[0.08em] uppercase text-text-muted border border-border rounded-sm px-[0.65rem] py-[0.3rem] bg-surface-2">{item}</span>
+            ))}
+          </div>
         </div>
-        <div class="flex flex-wrap gap-2">
-          {expertise.map((item) => (
-            <span class="font-mono text-label tracking-[0.08em] uppercase text-text-muted border border-border rounded-sm px-[0.65rem] py-[0.3rem] bg-surface-2">{item}</span>
-          ))}
+      </div>
+
+      <!-- Right: bio text -->
+      <div data-animate class="pt-2">
+        <p class="text-lead leading-[1.7] text-text-muted mb-6">
+          I'm Seth — a full-stack developer, technical lead, and lifelong creative based in Oceanside, CA. I build modern web products from first principles.
+        </p>
+        <p class="text-[0.9375rem] leading-[1.75] text-text-dim mb-6">
+          After three years working as a digital nomad — shipping code from wherever the wifi held — I established a permanent base in Southern California. The studio name reflects that journey, with Oceanside now serving as headquarters.
+        </p>
+        <p class="text-[0.9375rem] leading-[1.75] text-text-dim mb-10">
+          I work at the intersection of design, engineering, and product strategy — embedded in agency teams as their technical lead, or working directly with founders from concept to launch. Roadshow Creative is the home for that craft: client work done right, and products built to last. I'm shipping multiple SaaS products and scoping product problems with AI-driven tooling.
+        </p>
+
+        <!-- Callout stats row -->
+        <div data-animate-stagger class="grid grid-cols-3 gap-6 border-t border-border pt-8">
+          <div>
+            <div class="font-display text-[2.5rem] leading-none text-accent mb-1.5">15+</div>
+            <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">Years Building</div>
+          </div>
+          <div>
+            <div class="font-display text-[2.5rem] leading-none text-accent mb-1.5">20+</div>
+            <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">Projects Shipped</div>
+          </div>
+          <div>
+            <div class="font-display text-[2.5rem] leading-none text-accent mb-1.5">4</div>
+            <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">Products Live</div>
+          </div>
         </div>
       </div>
     </div>
+  ) : (
+    <!-- Story variant: simplified story content -->
+    <div class="max-w-[1200px] mx-auto relative z-1">
+      <div data-animate class="mb-16">
+        <div class="section-label mb-4">Our Story</div>
+        <h2 class="text-headline text-text m-0">OUR STORY</h2>
+      </div>
 
-    <!-- Right: bio text -->
-    <div data-animate class="pt-2">
-      <p class="text-lead leading-[1.7] text-text-muted mb-6">
-        I'm Seth — a full-stack developer, technical lead, and lifelong creative based in Oceanside, CA. I build modern web products from first principles.
-      </p>
-      <p class="text-[0.9375rem] leading-[1.75] text-text-dim mb-6">
-        After three years working as a digital nomad — shipping code from wherever the wifi held — I established a permanent base in Southern California. The studio name reflects that journey, with Oceanside now serving as headquarters.
-      </p>
-      <p class="text-[0.9375rem] leading-[1.75] text-text-dim mb-10">
-        I work at the intersection of design, engineering, and product strategy — embedded in agency teams as their technical lead, or working directly with founders from concept to launch. Roadshow Creative is the home for that craft: client work done right, and products built to last. I'm shipping multiple SaaS products and scoping product problems with AI-driven tooling.
-      </p>
-
-      <!-- Callout stats row -->
-      <div data-animate-stagger class="grid grid-cols-3 gap-6 border-t border-border pt-8">
-        <div>
-          <div class="font-display text-[2.5rem] leading-none text-accent mb-1.5">15+</div>
-          <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">Years Building</div>
-        </div>
-        <div>
-          <div class="font-display text-[2.5rem] leading-none text-accent mb-1.5">20+</div>
-          <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">Projects Shipped</div>
-        </div>
-        <div>
-          <div class="font-display text-[2.5rem] leading-none text-accent mb-1.5">4</div>
-          <div class="font-mono text-[0.625rem] tracking-[0.12em] uppercase text-text-dim">Products Live</div>
-        </div>
+      <div data-animate class="max-w-3xl">
+        <p class="text-lead leading-[1.7] text-text-muted mb-6">
+          Seth founded Roadshow Creative in Oceanside after 15+ years building products. Started as solo dev, now working with agencies and founders on their biggest challenges.
+        </p>
+        <p class="text-[0.9375rem] leading-[1.75] text-text-dim mb-6">
+          We've shipped 20+ projects. 4 live products generating revenue. Countless happy teams. Deep expertise in full-stack development, technical leadership, and AI.
+        </p>
+        <p class="text-[0.9375rem] leading-[1.75] text-text-dim">
+          Goal: help Oceanside and San Diego startups build products that last. Products that scale. Products that matter.
+        </p>
       </div>
     </div>
-
-  </div>
+  )}
 </section>

@@ -1,0 +1,61 @@
+---
+interface Advantage {
+  number: string;
+  label: string;
+  description: string;
+  fullWidth?: boolean;
+}
+
+interface Props {
+  title: string;
+  advantages: Advantage[];
+  numeral: string;
+  sectionLabel?: string;
+  sectionId?: string;
+}
+
+const { title, advantages, numeral, sectionLabel = "Advantage", sectionId } = Astro.props;
+---
+
+<section id={sectionId} class="py-section-lg px-8 bg-surface border-t border-b border-border relative overflow-hidden">
+  <!-- Background numeral -->
+  <div
+    aria-hidden="true"
+    class="absolute -right-8 top-8 font-display text-[clamp(10rem,24vw,20rem)] leading-none text-transparent pointer-events-none select-none z-0"
+    style="-webkit-text-stroke: 1px var(--color-border-subtle);"
+  >
+    {numeral}
+  </div>
+
+  <div class="max-w-[1200px] mx-auto relative z-1">
+    <div data-animate class="mb-16">
+      <div class="section-label mb-4">{sectionLabel}</div>
+      <h2 class="text-headline text-text m-0">{title}</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {advantages.map((advantage) => (
+        <div
+          data-animate
+          class={`p-8 bg-base border border-border rounded-sm hover:border-accent-2 hover:bg-surface-2 transition-colors duration-320 group ${
+            advantage.fullWidth ? 'md:col-span-2' : ''
+          }`}
+        >
+          <div class="flex items-start gap-4 mb-4">
+            <div class="font-display text-[2rem] leading-none text-border group-hover:text-accent-2 transition-colors">
+              {advantage.number}
+            </div>
+            <h3 class="font-display text-title text-text pt-1">{advantage.label}</h3>
+          </div>
+          <p class="text-[0.9375rem] leading-[1.7] text-text-muted">{advantage.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <style>
+    .group:hover h3 {
+      color: var(--color-accent-2);
+    }
+  </style>
+</section>

@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  ctaText?: string;
+  ctaHref?: string;
+  sectionId?: string;
+}
+
+const {
+  title,
+  subtitle,
+  ctaText = "Let's Talk",
+  ctaHref = "/#contact",
+  sectionId = "contact"
+} = Astro.props;
+---
+
+<section id={sectionId} class="py-section-lg px-8 bg-surface text-text border-t border-border">
+  <div class="max-w-[1200px] mx-auto text-center relative z-1">
+    <h2 class="text-headline font-bold font-display mb-6">{title}</h2>
+    <p class="text-lead text-text-muted mb-8 max-w-[640px] mx-auto">{subtitle}</p>
+    <a
+      href={ctaHref}
+      class="inline-block px-8 py-3 bg-accent text-base font-semibold rounded-sm hover:bg-accent-light transition-colors duration-base"
+    >
+      {ctaText}
+    </a>
+  </div>
+</section>
