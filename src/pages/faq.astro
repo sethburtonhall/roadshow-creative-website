@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     question: "How is Roadshow Creative different from hiring a full-time engineer?",
-    answer: "We combine the strategic focus of a CTO with hands-on engineering execution. Unlike a full-time hire, you get immediate expertise, flexibility in engagement, and no overhead costs. We're aligned with your timeline and can scale up or down as needed."
+    answer: "We combine the strategic focus of a CTO with hands-on agentic engineering. Unlike a full-time hire, you get immediate expertise, flexibility in engagement, and no overhead costs. We're aligned with your timeline and can scale up or down as needed."
   },
   {
     question: "What's included in the technical leadership service?",
@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     question: "How long does SaaS MVP development typically take?",
-    answer: "Most MVPs take 6-12 weeks depending on complexity. We focus on shipping the core value proposition fast, validating with users, then iterating. Speed is intentional—move fast, learn from users, refine."
+    answer: "In the past, developing MVPs could take 6–12 weeks, depending on complexity. Today, with agentic engineering, we can deliver them significantly faster—usually in half the time or less. Our focus is on swiftly shipping the core value proposition, validating with users, and iterating based on feedback. This speed is intentional: move fast, learn from users, and refine the product."
   },
   {
     question: "Do you work with non-technical founders?",
@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     question: "What tech stack do you recommend?",
-    answer: "We use modern, proven tools: Next.js for full-stack, TypeScript for safety, React for UI, PostgreSQL for databases, and Vercel for deployment. This stack is fast to build with, scales well, and has strong developer communities."
+    answer: "Our stack — Next.js, TypeScript, React, and PostgreSQL — has been refined over 15 years so your project starts on solid ground and scales effectively. We layer in Agentic Engineering from day one, using AI-driven automation to move faster and adapt as your needs evolve. Battle-tested tools, thriving communities behind them, and always scoped to what actually fits your project — no bloat, no dogma."
   },
   {
     question: "How do you handle AI agent integration?",
@@ -50,7 +50,7 @@ const faqs = [
   },
   {
     question: "How do you stay current with AI and new technologies?",
-    answer: "Continuous learning is built in. We experiment, ship side projects (see our 'Short Stacks'), and integrate what works into client projects. 15+ years means we've seen trends come and go—we focus on fundamentals + pragmatic innovation."
+    answer: "Continuous learning is built in. We experiment, ship side projects, and integrate what works into client projects. 15+ years means we've seen trends come and go—we focus on fundamentals + pragmatic innovation."
   }
 ];
 
@@ -71,42 +71,60 @@ const faqSchema = {
 <BaseLayout title="FAQ — Roadshow Creative" description="Frequently asked questions about embedded technical leadership, full-stack development, and SaaS engineering at Roadshow Creative.">
   <Nav />
 
-  <main class="min-h-screen flex flex-col">
+  <main class="min-h-screen flex flex-col" style="background-color: var(--color-base)">
     <!-- FAQ Schema -->
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
     <!-- Header -->
-    <section class="py-16 md:py-24 px-6 border-b border-slate-200">
+    <section class="py-16 md:py-32 px-6 relative overflow-hidden" style="border-bottom: 1px solid var(--color-border-subtle)">
+      <div class="absolute inset-0 -z-10 opacity-20">
+        <div class="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl" style="background: radial-gradient(ellipse at center, rgba(245, 165, 36, 0.15) 0%, transparent 70%)"></div>
+      </div>
       <div class="max-w-3xl mx-auto">
-        <h1 class="text-4xl md:text-5xl font-bold font-bebas mb-4">Frequently Asked Questions</h1>
-        <p class="text-lg text-slate-600">Everything you need to know about working with Roadshow Creative.</p>
+        <div class="text-sm uppercase tracking-wider font-mono mb-4" style="color: var(--color-accent)">Support</div>
+        <h1 class="text-6xl md:text-7xl font-bold font-bebas mb-6 leading-none" style="color: var(--color-text)">FAQ</h1>
+        <p class="text-lg max-w-2xl leading-relaxed" style="color: var(--color-text-muted)">Everything you need to know about working with Roadshow Creative. Can't find what you're looking for? <a href="/#contact" class="transition-colors font-semibold hover:opacity-80" style="color: var(--color-accent)">Let's talk.</a></p>
       </div>
     </section>
 
     <!-- FAQ List -->
-    <section class="flex-1 py-16 md:py-24 px-6">
-      <div class="max-w-3xl mx-auto space-y-12">
-        {faqs.map((faq, index) => (
-          <details class="group open:bg-slate-50 open:p-6 open:rounded-lg border border-slate-200 open:border-slate-300 cursor-pointer" key={index}>
-            <summary class="flex items-center justify-between font-semibold text-lg cursor-pointer select-none py-4 px-6 md:px-0">
-              <h2 class="text-slate-900 hover:text-accent transition-colors">{faq.question}</h2>
-              <span class="transition-transform group-open:rotate-180 text-accent text-xl md:text-2xl">▼</span>
-            </summary>
-            <div class="text-slate-700 leading-relaxed pt-0 pb-4 px-6 md:px-0 hidden group-open:block">
-              {faq.answer}
-            </div>
-          </details>
-        ))}
+    <section class="flex-1 py-16 md:py-32 px-6">
+      <div class="max-w-3xl mx-auto">
+        <div class="space-y-1">
+          {faqs.map((faq, index) => (
+            <details class="faq-item group transition-all duration-300" key={index} style="border-top: 1px solid var(--color-border)">
+              <summary class="flex items-center justify-between font-semibold cursor-pointer select-none py-6 px-0 transition-colors" style="color: var(--color-text)">
+                <h2 class="text-base md:text-lg pr-4 group-open:opacity-80 transition-colors" style="color: inherit">{faq.question}</h2>
+                <div class="flex-shrink-0 w-6 h-6 flex items-center justify-center transition-transform duration-300 group-open:rotate-180">
+                  <svg class="w-5 h-5 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-accent)">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                  </svg>
+                </div>
+              </summary>
+              <div class="faq-answer overflow-hidden transition-all duration-300 max-h-0 group-open:max-h-96">
+                <div class="pb-6 pt-2 leading-relaxed text-sm md:text-base pr-8" style="color: var(--color-text-muted)">
+                  {faq.answer}
+                </div>
+              </div>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 md:py-24 px-6 bg-slate-900 text-white">
+    <section class="py-20 md:py-32 px-6 relative overflow-hidden" style="border-top: 1px solid var(--color-border-subtle)">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl" style="background: radial-gradient(ellipse at center, rgba(245, 165, 36, 0.1) 0%, transparent 70%)"></div>
+      </div>
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold font-bebas mb-4">Still have questions?</h2>
-        <p class="text-lg text-slate-300 mb-8">Let's talk. We're happy to discuss your project and how we can help.</p>
-        <a href="#contact" class="inline-block bg-accent text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors">
+        <h2 class="text-5xl md:text-6xl font-bold font-bebas mb-6" style="color: var(--color-text)">Still have questions?</h2>
+        <p class="text-lg mb-10 max-w-xl mx-auto" style="color: var(--color-text-muted)">We're here to discuss your project and explore how we can help bring your vision to life.</p>
+        <a href="/#contact" class="inline-flex items-center gap-2 px-8 py-4 font-semibold transition-all duration-300 hover:gap-3 group" style="background-color: var(--color-accent); color: var(--color-base)">
           Start a Conversation
+          <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
         </a>
       </div>
     </section>
@@ -118,5 +136,29 @@ const faqSchema = {
 <style>
   details summary::-webkit-details-marker {
     display: none;
+  }
+
+  .faq-item[open] {
+    background-color: rgba(20, 20, 18, 0.5);
+    border-top-color: rgba(245, 165, 36, 0.4);
+  }
+
+  .faq-answer {
+    animation: slideDown 300ms cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  }
+
+  @keyframes slideDown {
+    from {
+      max-height: 0;
+      opacity: 0;
+    }
+    to {
+      max-height: 500px;
+      opacity: 1;
+    }
+  }
+
+  details[open] .faq-answer {
+    animation: slideDown 300ms cubic-bezier(0.19, 1, 0.22, 1);
   }
 </style>
