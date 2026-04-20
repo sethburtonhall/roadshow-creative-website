@@ -2,6 +2,19 @@
   "framework": "astro",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/:path(.*)?",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.roadshowcreative.dev"
+        }
+      ],
+      "destination": "https://roadshowcreative.dev/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

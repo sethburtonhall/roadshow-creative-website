@@ -13,7 +13,7 @@ const {
   title = 'Full-Stack Development & Technical Leadership — Roadshow Creative',
   description = "Embedded technical lead & full-stack engineering for agencies & founders building SaaS and AI products. Oceanside-based, nationwide.",
   ogImage = '/og-image.jpg',
-  canonicalUrl = Astro.url.href,
+  canonicalUrl = `https://roadshowcreative.dev${new URL(Astro.url).pathname}`,
 } = Astro.props;
 ---
 
@@ -30,7 +30,7 @@ const {
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site ?? 'https://roadshowcreative.dev')} />
+    <meta property="og:image" content={new URL(ogImage, 'https://roadshowcreative.dev')} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="Roadshow Creative" />
 
