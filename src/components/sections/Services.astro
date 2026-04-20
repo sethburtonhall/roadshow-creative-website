@@ -26,9 +26,8 @@ const { id = 'services' } = Astro.props;
     {services.map((service, index) => {
       const isLast = index === services.length - 1;
       return (
-      <a
-        href="#"
-        class={`service-item grid max-sm:grid-cols-[3.5rem_1fr] grid-cols-[5rem_1fr_auto] gap-8 items-start py-10 border-t border-border${isLast ? ' border-b' : ''} block no-underline hover:bg-surface/50 transition-colors px-0 cursor-pointer`}
+      <div
+        class={`service-item grid max-sm:grid-cols-[3.5rem_1fr] grid-cols-[5rem_1fr_auto] gap-8 items-start py-10 border-t border-border${isLast ? ' border-b' : ''} block no-underline hover:bg-surface/50 transition-colors px-0`}
         data-animate
       >
         <!-- Number -->
@@ -49,7 +48,7 @@ const { id = 'services' } = Astro.props;
         <div class="service-arrow max-sm:hidden mt-2 text-border transition-[color,transform] duration-320 shrink-0 ease-[cubic-bezier(0.4,0,0.2,1),cubic-bezier(0.19,1,0.22,1)]">
           <ArrowUpRight size={20} />
         </div>
-      </a>
+      </div>
       );
     })}
   </div>
