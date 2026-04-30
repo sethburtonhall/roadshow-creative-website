@@ -27,6 +27,12 @@
   "redirects": [
     {
       "source": "/:path(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.roadshowcreative.dev"
+        }
+      ],
       "destination": "https://roadshowcreative.dev/:path",
       "permanent": true
     }
